@@ -26,12 +26,12 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_BoolPtr___destroy___0(BoolPtr* self) {
 
 // TessResultRenderer
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessResultRenderer_BeginDocument_1(TessResultRenderer* self, const char* arg0) {
-  return self->BeginDocument(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessResultRenderer_BeginDocument_1(TessResultRenderer* self, const char* title) {
+  return self->BeginDocument(title);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessResultRenderer_AddImage_1(TessResultRenderer* self, TessBaseAPI* arg0) {
-  return self->AddImage(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessResultRenderer_AddImage_1(TessResultRenderer* self, TessBaseAPI* api) {
+  return self->AddImage(api);
 }
 
 bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessResultRenderer_EndDocument_0(TessResultRenderer* self) {
@@ -72,8 +72,8 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_VoidPtr___destroy___0(void** self) {
 
 // ResultIterator
 
-ResultIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_ResultIterator_1(const ResultIterator* arg0) {
-  return new ResultIterator(*arg0);
+ResultIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_ResultIterator_1(const ResultIterator* resit) {
+  return new ResultIterator(*resit);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Begin_0(ResultIterator* self) {
@@ -92,40 +92,40 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_RestartRow_0(ResultIter
   self->RestartRow();
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Next_1(ResultIterator* self, PageIteratorLevel arg0) {
-  return self->Next(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Next_1(ResultIterator* self, PageIteratorLevel level) {
+  return self->Next(level);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_IsAtBeginningOf_1(ResultIterator* self, PageIteratorLevel arg0) {
-  return self->IsAtBeginningOf(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_IsAtBeginningOf_1(ResultIterator* self, PageIteratorLevel level) {
+  return self->IsAtBeginningOf(level);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_IsAtFinalElement_2(ResultIterator* self, PageIteratorLevel arg0, PageIteratorLevel arg1) {
-  return self->IsAtFinalElement(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_IsAtFinalElement_2(ResultIterator* self, PageIteratorLevel level, PageIteratorLevel element) {
+  return self->IsAtFinalElement(level, element);
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Cmp_1(ResultIterator* self, const PageIterator* arg0) {
-  return self->Cmp(*arg0);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Cmp_1(ResultIterator* self, const PageIterator* other) {
+  return self->Cmp(*other);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SetBoundingBoxComponents_2(ResultIterator* self, bool arg0, bool arg1) {
-  self->SetBoundingBoxComponents(arg0, arg1);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SetBoundingBoxComponents_2(ResultIterator* self, bool include_upper_dots, bool include_lower_dots) {
+  self->SetBoundingBoxComponents(include_upper_dots, include_lower_dots);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BoundingBox_5(ResultIterator* self, PageIteratorLevel arg0, IntPtr* arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->BoundingBox(arg0, arg1, arg2, arg3, arg4);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BoundingBox_5(ResultIterator* self, PageIteratorLevel level, IntPtr* padding, IntPtr* left, IntPtr* top, IntPtr* right) {
+  return self->BoundingBox(level, padding, left, top, right);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BoundingBox_6(ResultIterator* self, PageIteratorLevel arg0, const int arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4, IntPtr* arg5) {
-  return self->BoundingBox(arg0, arg1, arg2, arg3, arg4, arg5);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BoundingBox_6(ResultIterator* self, PageIteratorLevel level, const int padding, IntPtr* left, IntPtr* top, IntPtr* right, IntPtr* bottom) {
+  return self->BoundingBox(level, padding, left, top, right, bottom);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BoundingBoxInternal_5(ResultIterator* self, PageIteratorLevel arg0, IntPtr* arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->BoundingBoxInternal(arg0, arg1, arg2, arg3, arg4);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BoundingBoxInternal_5(ResultIterator* self, PageIteratorLevel level, IntPtr* left, IntPtr* top, IntPtr* right, IntPtr* bottom) {
+  return self->BoundingBoxInternal(level, left, top, right, bottom);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Empty_1(ResultIterator* self, PageIteratorLevel arg0) {
-  return self->Empty(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Empty_1(ResultIterator* self, PageIteratorLevel level) {
+  return self->Empty(level);
 }
 
 PolyBlockType EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BlockType_0(ResultIterator* self) {
@@ -136,48 +136,48 @@ Pta* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_BlockPolygon_0(ResultIt
   return self->BlockPolygon();
 }
 
-Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_GetBinaryImage_1(ResultIterator* self, PageIteratorLevel arg0) {
-  return self->GetBinaryImage(arg0);
+Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_GetBinaryImage_1(ResultIterator* self, PageIteratorLevel level) {
+  return self->GetBinaryImage(level);
 }
 
-Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_GetImage_5(ResultIterator* self, PageIteratorLevel arg0, int arg1, Pix* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->GetImage(arg0, arg1, arg2, arg3, arg4);
+Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_GetImage_5(ResultIterator* self, PageIteratorLevel level, int padding, Pix* original_img, IntPtr* left, IntPtr* top) {
+  return self->GetImage(level, padding, original_img, left, top);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Baseline_5(ResultIterator* self, PageIteratorLevel arg0, IntPtr* arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->Baseline(arg0, arg1, arg2, arg3, arg4);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Baseline_5(ResultIterator* self, PageIteratorLevel level, IntPtr* x1, IntPtr* y1, IntPtr* x2, IntPtr* y2) {
+  return self->Baseline(level, x1, y1, x2, y2);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Orientation_4(ResultIterator* self, Orientation* arg0, WritingDirection* arg1, TextlineOrder* arg2, FloatPtr* arg3) {
-  self->Orientation(arg0, arg1, arg2, arg3);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Orientation_4(ResultIterator* self, Orientation* orientation, WritingDirection* writing_direction, TextlineOrder* textline_order, FloatPtr* deskew_angle) {
+  self->Orientation(orientation, writing_direction, textline_order, deskew_angle);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_ParagraphInfo_4(ResultIterator* self, ParagraphJustification* arg0, BoolPtr* arg1, BoolPtr* arg2, IntPtr* arg3) {
-  self->ParagraphInfo(arg0, arg1, arg2, arg3);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_ParagraphInfo_4(ResultIterator* self, ParagraphJustification* justification, BoolPtr* is_list_item, BoolPtr* is_crown, IntPtr* first_line_indent) {
+  self->ParagraphInfo(justification, is_list_item, is_crown, first_line_indent);
 }
 
 bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_ParagraphIsLtr_0(ResultIterator* self) {
   return self->ParagraphIsLtr();
 }
 
-char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_GetUTF8Text_1(ResultIterator* self, PageIteratorLevel arg0) {
-  return self->GetUTF8Text(arg0);
+char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_GetUTF8Text_1(ResultIterator* self, PageIteratorLevel level) {
+  return self->GetUTF8Text(level);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SetLineSeparator_1(ResultIterator* self, const char* arg0) {
-  self->SetLineSeparator(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SetLineSeparator_1(ResultIterator* self, const char* new_line) {
+  self->SetLineSeparator(new_line);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SetParagraphSeparator_1(ResultIterator* self, const char* arg0) {
-  self->SetParagraphSeparator(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SetParagraphSeparator_1(ResultIterator* self, const char* new_para) {
+  self->SetParagraphSeparator(new_para);
 }
 
-float EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Confidence_1(ResultIterator* self, PageIteratorLevel arg0) {
-  return self->Confidence(arg0);
+float EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_Confidence_1(ResultIterator* self, PageIteratorLevel level) {
+  return self->Confidence(level);
 }
 
-const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordFontAttributes_8(ResultIterator* self, BoolPtr* arg0, BoolPtr* arg1, BoolPtr* arg2, BoolPtr* arg3, BoolPtr* arg4, BoolPtr* arg5, IntPtr* arg6, IntPtr* arg7) {
-  return self->WordFontAttributes(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordFontAttributes_8(ResultIterator* self, BoolPtr* is_bold, BoolPtr* is_italic, BoolPtr* is_underlined, BoolPtr* is_monospace, BoolPtr* is_serif, BoolPtr* is_smallcaps, IntPtr* pointsize, IntPtr* font_id) {
+  return self->WordFontAttributes(is_bold, is_italic, is_underlined, is_monospace, is_serif, is_smallcaps, pointsize, font_id);
 }
 
 const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordRecognitionLanguage_0(ResultIterator* self) {
@@ -204,8 +204,8 @@ bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_HasTruthString_0(Result
   return self->HasTruthString();
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_EquivalentToTruth_1(ResultIterator* self, const char* arg0) {
-  return self->EquivalentToTruth(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_EquivalentToTruth_1(ResultIterator* self, const char* str) {
+  return self->EquivalentToTruth(str);
 }
 
 char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordTruthUTF8Text_0(ResultIterator* self) {
@@ -216,8 +216,8 @@ char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordNormedUTF8Text_0(R
   return self->WordNormedUTF8Text();
 }
 
-const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordLattice_1(ResultIterator* self, IntPtr* arg0) {
-  return self->WordLattice(arg0);
+const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_WordLattice_1(ResultIterator* self, IntPtr* lattice_size) {
+  return self->WordLattice(lattice_size);
 }
 
 bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ResultIterator_SymbolIsSuperscript_0(ResultIterator* self) {
@@ -266,40 +266,40 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_RestartRow_0(PageIterator
   self->RestartRow();
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Next_1(PageIterator* self, PageIteratorLevel arg0) {
-  return self->Next(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Next_1(PageIterator* self, PageIteratorLevel level) {
+  return self->Next(level);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_IsAtBeginningOf_1(PageIterator* self, PageIteratorLevel arg0) {
-  return self->IsAtBeginningOf(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_IsAtBeginningOf_1(PageIterator* self, PageIteratorLevel level) {
+  return self->IsAtBeginningOf(level);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_IsAtFinalElement_2(PageIterator* self, PageIteratorLevel arg0, PageIteratorLevel arg1) {
-  return self->IsAtFinalElement(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_IsAtFinalElement_2(PageIterator* self, PageIteratorLevel level, PageIteratorLevel element) {
+  return self->IsAtFinalElement(level, element);
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Cmp_1(PageIterator* self, const PageIterator* arg0) {
-  return self->Cmp(*arg0);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Cmp_1(PageIterator* self, const PageIterator* other) {
+  return self->Cmp(*other);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_SetBoundingBoxComponents_2(PageIterator* self, bool arg0, bool arg1) {
-  self->SetBoundingBoxComponents(arg0, arg1);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_SetBoundingBoxComponents_2(PageIterator* self, bool include_upper_dots, bool include_lower_dots) {
+  self->SetBoundingBoxComponents(include_upper_dots, include_lower_dots);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BoundingBox_5(PageIterator* self, PageIteratorLevel arg0, IntPtr* arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->BoundingBox(arg0, arg1, arg2, arg3, arg4);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BoundingBox_5(PageIterator* self, PageIteratorLevel level, IntPtr* padding, IntPtr* left, IntPtr* top, IntPtr* right) {
+  return self->BoundingBox(level, padding, left, top, right);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BoundingBox_6(PageIterator* self, PageIteratorLevel arg0, const int arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4, IntPtr* arg5) {
-  return self->BoundingBox(arg0, arg1, arg2, arg3, arg4, arg5);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BoundingBox_6(PageIterator* self, PageIteratorLevel level, const int padding, IntPtr* left, IntPtr* top, IntPtr* right, IntPtr* bottom) {
+  return self->BoundingBox(level, padding, left, top, right, bottom);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BoundingBoxInternal_5(PageIterator* self, PageIteratorLevel arg0, IntPtr* arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->BoundingBoxInternal(arg0, arg1, arg2, arg3, arg4);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BoundingBoxInternal_5(PageIterator* self, PageIteratorLevel level, IntPtr* left, IntPtr* top, IntPtr* right, IntPtr* bottom) {
+  return self->BoundingBoxInternal(level, left, top, right, bottom);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Empty_1(PageIterator* self, PageIteratorLevel arg0) {
-  return self->Empty(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Empty_1(PageIterator* self, PageIteratorLevel level) {
+  return self->Empty(level);
 }
 
 PolyBlockType EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BlockType_0(PageIterator* self) {
@@ -310,24 +310,24 @@ Pta* EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_BlockPolygon_0(PageIterat
   return self->BlockPolygon();
 }
 
-Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_GetBinaryImage_1(PageIterator* self, PageIteratorLevel arg0) {
-  return self->GetBinaryImage(arg0);
+Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_GetBinaryImage_1(PageIterator* self, PageIteratorLevel level) {
+  return self->GetBinaryImage(level);
 }
 
-Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_GetImage_5(PageIterator* self, PageIteratorLevel arg0, int arg1, Pix* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->GetImage(arg0, arg1, arg2, arg3, arg4);
+Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_GetImage_5(PageIterator* self, PageIteratorLevel level, int padding, Pix* original_img, IntPtr* left, IntPtr* top) {
+  return self->GetImage(level, padding, original_img, left, top);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Baseline_5(PageIterator* self, PageIteratorLevel arg0, IntPtr* arg1, IntPtr* arg2, IntPtr* arg3, IntPtr* arg4) {
-  return self->Baseline(arg0, arg1, arg2, arg3, arg4);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Baseline_5(PageIterator* self, PageIteratorLevel level, IntPtr* x1, IntPtr* y1, IntPtr* x2, IntPtr* y2) {
+  return self->Baseline(level, x1, y1, x2, y2);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Orientation_4(PageIterator* self, Orientation* arg0, WritingDirection* arg1, TextlineOrder* arg2, FloatPtr* arg3) {
-  self->Orientation(arg0, arg1, arg2, arg3);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_Orientation_4(PageIterator* self, Orientation* orientation, WritingDirection* writing_direction, TextlineOrder* textline_order, FloatPtr* deskew_angle) {
+  self->Orientation(orientation, writing_direction, textline_order, deskew_angle);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_ParagraphInfo_4(PageIterator* self, ParagraphJustification* arg0, BoolPtr* arg1, BoolPtr* arg2, IntPtr* arg3) {
-  self->ParagraphInfo(arg0, arg1, arg2, arg3);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator_ParagraphInfo_4(PageIterator* self, ParagraphJustification* justification, BoolPtr* is_list_item, BoolPtr* is_crown, IntPtr* first_line_indent) {
+  self->ParagraphInfo(justification, is_list_item, is_crown, first_line_indent);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_PageIterator___destroy___0(PageIterator* self) {
@@ -342,8 +342,8 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_WritingDirection___destroy___0(Writing
 
 // WordChoiceIterator
 
-WordChoiceIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_WordChoiceIterator_WordChoiceIterator_1(const ResultIterator* arg0) {
-  return new WordChoiceIterator(*arg0);
+WordChoiceIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_WordChoiceIterator_WordChoiceIterator_1(const ResultIterator* result_it) {
+  return new WordChoiceIterator(*result_it);
 }
 
 bool EMSCRIPTEN_KEEPALIVE emscripten_bind_WordChoiceIterator_Next_0(WordChoiceIterator* self) {
@@ -390,16 +390,16 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_Box___destroy___0(Box* self) {
 
 // TessPDFRenderer
 
-TessPDFRenderer* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_TessPDFRenderer_3(const char* arg0, const char* arg1, bool arg2) {
-  return new TessPDFRenderer(arg0, arg1, arg2);
+TessPDFRenderer* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_TessPDFRenderer_3(const char* outputbase, const char* datadir, bool textonly) {
+  return new TessPDFRenderer(outputbase, datadir, textonly);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_BeginDocument_1(TessPDFRenderer* self, const char* arg0) {
-  return self->BeginDocument(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_BeginDocument_1(TessPDFRenderer* self, const char* title) {
+  return self->BeginDocument(title);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_AddImage_1(TessPDFRenderer* self, TessBaseAPI* arg0) {
-  return self->AddImage(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_AddImage_1(TessPDFRenderer* self, TessBaseAPI* api) {
+  return self->AddImage(api);
 }
 
 bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessPDFRenderer_EndDocument_0(TessPDFRenderer* self) {
@@ -440,8 +440,8 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_FloatPtr___destroy___0(FloatPtr* self)
 
 // ChoiceIterator
 
-ChoiceIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_ChoiceIterator_ChoiceIterator_1(const ResultIterator* arg0) {
-  return new ChoiceIterator(*arg0);
+ChoiceIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_ChoiceIterator_ChoiceIterator_1(const ResultIterator* result_it) {
+  return new ChoiceIterator(*result_it);
 }
 
 bool EMSCRIPTEN_KEEPALIVE emscripten_bind_ChoiceIterator_Next_0(ChoiceIterator* self) {
@@ -468,12 +468,12 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_PixPtr___destroy___0(PixPtr* self) {
 
 // UNICHARSET
 
-const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_UNICHARSET_get_script_from_script_id_1(UNICHARSET* self, int arg0) {
-  return self->get_script_from_script_id(arg0);
+const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_UNICHARSET_get_script_from_script_id_1(UNICHARSET* self, int id) {
+  return self->get_script_from_script_id(id);
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_UNICHARSET_get_script_id_from_name_1(UNICHARSET* self, const char* arg0) {
-  return self->get_script_id_from_name(arg0);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_UNICHARSET_get_script_id_from_name_1(UNICHARSET* self, const char* script_name) {
+  return self->get_script_id_from_name(script_name);
 }
 
 int EMSCRIPTEN_KEEPALIVE emscripten_bind_UNICHARSET_get_script_table_size_0(UNICHARSET* self) {
@@ -678,16 +678,16 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_CatchSignals_0(TessBaseAPI
   self->CatchSignals();
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetInputName_1(TessBaseAPI* self, const char* arg0) {
-  self->SetInputName(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetInputName_1(TessBaseAPI* self, const char* name) {
+  self->SetInputName(name);
 }
 
 const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetInputName_0(TessBaseAPI* self) {
   return self->GetInputName();
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetInputImage_1(TessBaseAPI* self, Pix* arg0) {
-  self->SetInputImage(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetInputImage_1(TessBaseAPI* self, Pix* pix) {
+  self->SetInputImage(pix);
 }
 
 Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetInputImage_0(TessBaseAPI* self) {
@@ -702,132 +702,132 @@ const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetDatapath_0(TessB
   return self->GetDatapath();
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetOutputName_1(TessBaseAPI* self, const char* arg0) {
-  self->SetOutputName(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetOutputName_1(TessBaseAPI* self, const char* name) {
+  self->SetOutputName(name);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetVariable_2(TessBaseAPI* self, const char* arg0, const char* arg1) {
-  return self->SetVariable(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetVariable_2(TessBaseAPI* self, const char* name, const char* value) {
+  return self->SetVariable(name, value);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetDebugVariable_2(TessBaseAPI* self, const char* arg0, const char* arg1) {
-  return self->SetDebugVariable(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetDebugVariable_2(TessBaseAPI* self, const char* name, const char* value) {
+  return self->SetDebugVariable(name, value);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetIntVariable_2(TessBaseAPI* self, const char* arg0, IntPtr* arg1) {
-  return self->GetIntVariable(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetIntVariable_2(TessBaseAPI* self, const char* name, IntPtr* value) {
+  return self->GetIntVariable(name, value);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetBoolVariable_2(TessBaseAPI* self, const char* arg0, BoolPtr* arg1) {
-  return self->GetBoolVariable(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetBoolVariable_2(TessBaseAPI* self, const char* name, BoolPtr* value) {
+  return self->GetBoolVariable(name, value);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetDoubleVariable_2(TessBaseAPI* self, const char* arg0, DoublePtr* arg1) {
-  return self->GetDoubleVariable(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetDoubleVariable_2(TessBaseAPI* self, const char* name, DoublePtr* value) {
+  return self->GetDoubleVariable(name, value);
 }
 
-const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetStringVariable_1(TessBaseAPI* self, const char* arg0) {
-  return self->GetStringVariable(arg0);
+const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetStringVariable_1(TessBaseAPI* self, const char* name) {
+  return self->GetStringVariable(name);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_PrintVariables_0(TessBaseAPI* self) {
   self->PrintVariables();
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Init_2(TessBaseAPI* self, const char* arg0, const char* arg1) {
-  return self->Init(arg0, arg1);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Init_2(TessBaseAPI* self, const char* datapath, const char* language) {
+  return self->Init(datapath, language);
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Init_3(TessBaseAPI* self, const char* arg0, const char* arg1, OcrEngineMode arg2) {
-  return self->Init(arg0, arg1, arg2);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Init_3(TessBaseAPI* self, const char* datapath, const char* language, OcrEngineMode oem) {
+  return self->Init(datapath, language, oem);
 }
 
 const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetInitLanguagesAsString_0(TessBaseAPI* self) {
   return self->GetInitLanguagesAsString();
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_InitLangMod_2(TessBaseAPI* self, const char* arg0, const char* arg1) {
-  return self->InitLangMod(arg0, arg1);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_InitLangMod_2(TessBaseAPI* self, const char* datapath, const char* language) {
+  return self->InitLangMod(datapath, language);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_InitForAnalysePage_0(TessBaseAPI* self) {
   self->InitForAnalysePage();
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ReadConfigFile_1(TessBaseAPI* self, const char* arg0) {
-  self->ReadConfigFile(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ReadConfigFile_1(TessBaseAPI* self, const char* filename) {
+  self->ReadConfigFile(filename);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ReadDebugConfigFile_1(TessBaseAPI* self, const char* arg0) {
-  self->ReadDebugConfigFile(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ReadDebugConfigFile_1(TessBaseAPI* self, const char* filename) {
+  self->ReadDebugConfigFile(filename);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetPageSegMode_1(TessBaseAPI* self, PageSegMode arg0) {
-  self->SetPageSegMode(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetPageSegMode_1(TessBaseAPI* self, PageSegMode mode) {
+  self->SetPageSegMode(mode);
 }
 
 PageSegMode EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetPageSegMode_0(TessBaseAPI* self) {
   return self->GetPageSegMode();
 }
 
-char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_TesseractRect_7(TessBaseAPI* self, const Uint8Array arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
-  return self->TesseractRect(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_TesseractRect_7(TessBaseAPI* self, const Uint8Array imagedata, int bytes_per_pixel, int bytes_per_line, int left, int top, int width, int height) {
+  return self->TesseractRect(imagedata, bytes_per_pixel, bytes_per_line, left, top, width, height);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ClearAdaptiveClassifier_0(TessBaseAPI* self) {
   self->ClearAdaptiveClassifier();
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetImage_1(TessBaseAPI* self, Pix* arg0) {
-  self->SetImage(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetImage_1(TessBaseAPI* self, Pix* imagedata) {
+  self->SetImage(imagedata);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetImage_5(TessBaseAPI* self, const Uint8Array arg0, int arg1, int arg2, int arg3, int arg4) {
-  self->SetImage(arg0, arg1, arg2, arg3, arg4);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetImage_5(TessBaseAPI* self, const Uint8Array imagedata, int width, int height, int bytes_per_pixel, int bytes_per_line) {
+  self->SetImage(imagedata, width, height, bytes_per_pixel, bytes_per_line);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetSourceResolution_1(TessBaseAPI* self, int arg0) {
-  self->SetSourceResolution(arg0);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetSourceResolution_1(TessBaseAPI* self, int ppi) {
+  self->SetSourceResolution(ppi);
 }
 
-void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetRectangle_4(TessBaseAPI* self, int arg0, int arg1, int arg2, int arg3) {
-  self->SetRectangle(arg0, arg1, arg2, arg3);
+void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_SetRectangle_4(TessBaseAPI* self, int left, int top, int width, int height) {
+  self->SetRectangle(left, top, width, height);
 }
 
 Pix* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetThresholdedImage_0(TessBaseAPI* self) {
   return self->GetThresholdedImage();
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetRegions_1(TessBaseAPI* self, PixaPtr* arg0) {
-  return self->GetRegions(arg0);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetRegions_1(TessBaseAPI* self, PixaPtr* pixa) {
+  return self->GetRegions(pixa);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetTextlines_2(TessBaseAPI* self, PixaPtr* arg0, LongStarPtr* arg1) {
-  return self->GetTextlines(arg0, arg1);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetTextlines_2(TessBaseAPI* self, PixaPtr* raw_image, LongStarPtr* raw_padding) {
+  return self->GetTextlines(raw_image, raw_padding);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetTextlines_5(TessBaseAPI* self, const bool arg0, const int arg1, PixaPtr* arg2, LongStarPtr* arg3, LongStarPtr* arg4) {
-  return self->GetTextlines(arg0, arg1, arg2, arg3, arg4);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetTextlines_5(TessBaseAPI* self, const bool raw_image, const int raw_padding, PixaPtr* pixa, LongStarPtr* blockids, LongStarPtr* paraids) {
+  return self->GetTextlines(raw_image, raw_padding, pixa, blockids, paraids);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetStrips_2(TessBaseAPI* self, PixaPtr* arg0, LongStarPtr* arg1) {
-  return self->GetStrips(arg0, arg1);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetStrips_2(TessBaseAPI* self, PixaPtr* pixa, LongStarPtr* blockids) {
+  return self->GetStrips(pixa, blockids);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetWords_1(TessBaseAPI* self, PixaPtr* arg0) {
-  return self->GetWords(arg0);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetWords_1(TessBaseAPI* self, PixaPtr* pixa) {
+  return self->GetWords(pixa);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetConnectedComponents_1(TessBaseAPI* self, PixaPtr* arg0) {
-  return self->GetConnectedComponents(arg0);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetConnectedComponents_1(TessBaseAPI* self, PixaPtr* cc) {
+  return self->GetConnectedComponents(cc);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetComponentImages_4(TessBaseAPI* self, const PageIteratorLevel arg0, const bool arg1, PixaPtr* arg2, LongStarPtr* arg3) {
-  return self->GetComponentImages(arg0, arg1, arg2, arg3);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetComponentImages_4(TessBaseAPI* self, const PageIteratorLevel level, const bool text_only, PixaPtr* raw_image, LongStarPtr* raw_padding) {
+  return self->GetComponentImages(level, text_only, raw_image, raw_padding);
 }
 
-Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetComponentImages_7(TessBaseAPI* self, const PageIteratorLevel arg0, const bool arg1, const bool arg2, const int arg3, PixaPtr* arg4, LongStarPtr* arg5, LongStarPtr* arg6) {
-  return self->GetComponentImages(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+Boxa* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetComponentImages_7(TessBaseAPI* self, const PageIteratorLevel level, const bool text_only, const bool raw_image, const int raw_padding, PixaPtr* pixa, LongStarPtr* blockids, LongStarPtr* paraids) {
+  return self->GetComponentImages(level, text_only, raw_image, raw_padding, pixa, blockids, paraids);
 }
 
 int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetThresholdedImageScaleFactor_0(TessBaseAPI* self) {
@@ -838,24 +838,24 @@ PageIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_AnalyseLayout_0(T
   return self->AnalyseLayout();
 }
 
-PageIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_AnalyseLayout_1(TessBaseAPI* self, bool arg0) {
-  return self->AnalyseLayout(arg0);
+PageIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_AnalyseLayout_1(TessBaseAPI* self, bool merge_similar_words) {
+  return self->AnalyseLayout(merge_similar_words);
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Recognize_1(TessBaseAPI* self, ETEXT_DESC* arg0) {
-  return self->Recognize(arg0);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Recognize_1(TessBaseAPI* self, ETEXT_DESC* monitor) {
+  return self->Recognize(monitor);
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_RecognizeForChopTest_1(TessBaseAPI* self, ETEXT_DESC* arg0) {
-  return self->RecognizeForChopTest(arg0);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_RecognizeForChopTest_1(TessBaseAPI* self, ETEXT_DESC* monitor) {
+  return self->RecognizeForChopTest(monitor);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ProcessPages_4(TessBaseAPI* self, const char* arg0, const char* arg1, int arg2, TessResultRenderer* arg3) {
-  return self->ProcessPages(arg0, arg1, arg2, arg3);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ProcessPages_4(TessBaseAPI* self, const char* filename, const char* retry_config, int timeout_millisec, TessResultRenderer* renderer) {
+  return self->ProcessPages(filename, retry_config, timeout_millisec, renderer);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ProcessPage_6(TessBaseAPI* self, Pix* arg0, int arg1, const char* arg2, const char* arg3, int arg4, TessResultRenderer* arg5) {
-  return self->ProcessPage(arg0, arg1, arg2, arg3, arg4, arg5);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ProcessPage_6(TessBaseAPI* self, Pix* pix, int page_index, const char* filename, const char* retry_config, int timeout_millisec, TessResultRenderer* renderer) {
+  return self->ProcessPage(pix, page_index, filename, retry_config, timeout_millisec, renderer);
 }
 
 ResultIterator* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetIterator_0(TessBaseAPI* self) {
@@ -866,24 +866,24 @@ char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetUTF8Text_0(TessBaseAPI
   return self->GetUTF8Text();
 }
 
-char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetHOCRText_1(TessBaseAPI* self, int arg0) {
-  return self->GetHOCRText(arg0);
+char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetHOCRText_1(TessBaseAPI* self, int page_number) {
+  return self->GetHOCRText(page_number);
 }
 
-char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetTSVText_1(TessBaseAPI* self, int arg0) {
-  return self->GetTSVText(arg0);
+char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetTSVText_1(TessBaseAPI* self, int page_number) {
+  return self->GetTSVText(page_number);
 }
 
-char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetBoxText_1(TessBaseAPI* self, int arg0) {
-  return self->GetBoxText(arg0);
+char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetBoxText_1(TessBaseAPI* self, int page_number) {
+  return self->GetBoxText(page_number);
 }
 
 char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetUNLVText_0(TessBaseAPI* self) {
   return self->GetUNLVText();
 }
 
-char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetOsdText_1(TessBaseAPI* self, int arg0) {
-  return self->GetOsdText(arg0);
+char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetOsdText_1(TessBaseAPI* self, int page_number) {
+  return self->GetOsdText(page_number);
 }
 
 int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_MeanTextConf_0(TessBaseAPI* self) {
@@ -894,8 +894,8 @@ IntPtr* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_AllWordConfidences_0(Te
   return self->AllWordConfidences();
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_AdaptToWordStr_2(TessBaseAPI* self, PageSegMode arg0, const char* arg1) {
-  return self->AdaptToWordStr(arg0, arg1);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_AdaptToWordStr_2(TessBaseAPI* self, PageSegMode mode, const char* wordstr) {
+  return self->AdaptToWordStr(mode, wordstr);
 }
 
 void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_Clear_0(TessBaseAPI* self) {
@@ -910,24 +910,24 @@ void EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_ClearPersistentCache_0(Tes
   self->ClearPersistentCache();
 }
 
-int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_IsValidWord_1(TessBaseAPI* self, const char* arg0) {
-  return self->IsValidWord(arg0);
+int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_IsValidWord_1(TessBaseAPI* self, const char* word) {
+  return self->IsValidWord(word);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_IsValidCharacter_1(TessBaseAPI* self, const char* arg0) {
-  return self->IsValidCharacter(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_IsValidCharacter_1(TessBaseAPI* self, const char* utf8_character) {
+  return self->IsValidCharacter(utf8_character);
 }
 
-bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_DetectOS_1(TessBaseAPI* self, OSResults* arg0) {
-  return self->DetectOS(arg0);
+bool EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_DetectOS_1(TessBaseAPI* self, OSResults* osr) {
+  return self->DetectOS(osr);
 }
 
-const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetUnichar_1(TessBaseAPI* self, int arg0) {
-  return self->GetUnichar(arg0);
+const char* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetUnichar_1(TessBaseAPI* self, int unichar_id) {
+  return self->GetUnichar(unichar_id);
 }
 
-const Dawg* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetDawg_1(TessBaseAPI* self, int arg0) {
-  return self->GetDawg(arg0);
+const Dawg* EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_GetDawg_1(TessBaseAPI* self, int i) {
+  return self->GetDawg(i);
 }
 
 int EMSCRIPTEN_KEEPALIVE emscripten_bind_TessBaseAPI_NumDawgs_0(TessBaseAPI* self) {

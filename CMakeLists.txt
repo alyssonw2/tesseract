@@ -23,11 +23,12 @@ if ("${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
     )
 endif()
 
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake;/emsdk_portable/sdk/cmake/Modules")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake;/emsdk_portable/emscripten/sdk/cmake/Modules")
 
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${EXECUTABLE_OUTPUT_PATH}")
 set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_SKIP_BUILD_RPATH ON)
 
 # Use solution folders.
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -73,7 +74,7 @@ option(CPPAN_BUILD "Build with cppan" ON)
 option(OPENMP_BUILD "Build with openmp support" OFF)  # see issue #1662
 option(GRAPHICS_DISABLED "Disable disable graphics (ScrollView)" OFF)
 option(DISABLED_LEGACY_ENGINE "Disable the legacy OCR engine" OFF)
-option(BUILD_TRAINING_TOOLS "Build training tools" ON)
+option(BUILD_TRAINING_TOOLS "Build training tools" OFF)
 option(BUILD_TESTS "Build tests" OFF)
 
 if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.cppan)
@@ -140,7 +141,6 @@ if (CYGWIN)
 endif()
 
 if (UNIX)
-<<<<<<< HEAD
     #
     # Check link below for detail explanation:
     # https://kripken.github.io/emscripten-site/docs/tools_reference/emcc.html
@@ -215,15 +215,15 @@ set(AVX_OPT OFF)
 set(AVX2_OPT OFF)
 set(SSE41_OPT OFF)
 set(MARCH_NATIVE_OPT OFF)
-foreach(flag ${_enable_vector_unit_list})  # from OptimizeForArchitecture()
-    string(TOUPPER "${flag}" flag)
-    string(REPLACE "\." "_" flag "${flag}")
-    set(sim_flags "${sim_flags} -D${flag}")
-    string(REPLACE "_" "" flag "${flag}")
-    if("${flag}" MATCHES "AVX|AVX2|SSE41")
-        set("${flag}_OPT" ON)
-    endif()
-endforeach(flag)
+#foreach(flag ${_enable_vector_unit_list})   from OptimizeForArchitecture()
+#    string(TOUPPER "${flag}" flag)
+#    string(REPLACE "\." "_" flag "${flag}")
+#    set(sim_flags "${sim_flags} -D${flag}")
+#    string(REPLACE "_" "" flag "${flag}")
+#    if("${flag}" MATCHES "AVX|AVX2|SSE41")
+#        set("${flag}_OPT" ON)
+#    endif()
+#endforeach(flag)
 FILE(GLOB arch_files "src/arch/*.cpp")
 set_source_files_properties(${arch_files} PROPERTIES COMPILE_FLAGS "${CMAKE_CXX_FLAGS} ${sim_flags}")
 include(CheckCXXCompilerFlag)
@@ -476,6 +476,8 @@ set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s INVOKE_RUN=0")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s AGGRESSIVE_VARIABLE_ELIMINATION=1")
 # Allow stackTrace() to emit fully proper demangled c++ names
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s DEMANGLE_SUPPORT=1")
+# Allow unused symbol
+set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s ERROR_ON_UNDEFINED_SYMBOLS=0")
 #
 # This flag fix the issue of [float unrepresentable in integer range]
 # Ref: http://kripken.github.io/emscripten-site/docs/compiling/WebAssembly.html#trap-mode

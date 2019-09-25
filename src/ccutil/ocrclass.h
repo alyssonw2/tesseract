@@ -27,6 +27,7 @@
 #define CCUTIL_OCRCLASS_H_
 
 #include <chrono>
+#include <sys/types.h>
 #include <ctime>
 #ifdef _WIN32
 #include <winsock2.h> // for timeval

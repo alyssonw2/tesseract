@@ -1,5 +1,7 @@
 #!/bin/bash
 
+NPROC=$(cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l)
+
 build_leptonica() {
   cd leptonica
   sh build-js.sh
@@ -10,7 +12,7 @@ build_tesseract() {
   mkdir -p build
   cd build
   emmake cmake .. -DLeptonica_DIR=leptonica/build
-  emmake make -j4
+  emmake make -j${NPROC}
   cd ..
 }
 

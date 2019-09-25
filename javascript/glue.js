@@ -200,18 +200,18 @@ TessResultRenderer.prototype.__class__ = TessResultRenderer;
 TessResultRenderer.__cache__ = {};
 Module['TessResultRenderer'] = TessResultRenderer;
 
-TessResultRenderer.prototype['BeginDocument'] = TessResultRenderer.prototype.BeginDocument = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessResultRenderer.prototype['BeginDocument'] = TessResultRenderer.prototype.BeginDocument = /** @suppress {undefinedVars, duplicate} */function(title) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return !!(_emscripten_bind_TessResultRenderer_BeginDocument_1(self, arg0));
+  if (title && typeof title === 'object') title = title.ptr;
+  else title = ensureString(title);
+  return !!(_emscripten_bind_TessResultRenderer_BeginDocument_1(self, title));
 };;
 
-TessResultRenderer.prototype['AddImage'] = TessResultRenderer.prototype.AddImage = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessResultRenderer.prototype['AddImage'] = TessResultRenderer.prototype.AddImage = /** @suppress {undefinedVars, duplicate} */function(api) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_TessResultRenderer_AddImage_1(self, arg0));
+  if (api && typeof api === 'object') api = api.ptr;
+  return !!(_emscripten_bind_TessResultRenderer_AddImage_1(self, api));
 };;
 
 TessResultRenderer.prototype['EndDocument'] = TessResultRenderer.prototype.EndDocument = /** @suppress {undefinedVars, duplicate} */function() {
@@ -226,12 +226,12 @@ TessResultRenderer.prototype['happy'] = TessResultRenderer.prototype.happy = /**
 
 TessResultRenderer.prototype['file_extension'] = TessResultRenderer.prototype.file_extension = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessResultRenderer_file_extension_0(self));
+  return UTF8ToString(_emscripten_bind_TessResultRenderer_file_extension_0(self));
 };;
 
 TessResultRenderer.prototype['title'] = TessResultRenderer.prototype.title = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessResultRenderer_title_0(self));
+  return UTF8ToString(_emscripten_bind_TessResultRenderer_title_0(self));
 };;
 
 TessResultRenderer.prototype['imagenum'] = TessResultRenderer.prototype.imagenum = /** @suppress {undefinedVars, duplicate} */function() {
@@ -268,9 +268,9 @@ Module['VoidPtr'] = VoidPtr;
   _emscripten_bind_VoidPtr___destroy___0(self);
 };
 // ResultIterator
-/** @suppress {undefinedVars, duplicate} */function ResultIterator(arg0) {
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  this.ptr = _emscripten_bind_ResultIterator_ResultIterator_1(arg0);
+/** @suppress {undefinedVars, duplicate} */function ResultIterator(resit) {
+  if (resit && typeof resit === 'object') resit = resit.ptr;
+  this.ptr = _emscripten_bind_ResultIterator_ResultIterator_1(resit);
   getCache(ResultIterator)[this.ptr] = this;
 };;
 ResultIterator.prototype = Object.create(WrapperObject.prototype);
@@ -299,64 +299,64 @@ ResultIterator.prototype['RestartRow'] = ResultIterator.prototype.RestartRow = /
   _emscripten_bind_ResultIterator_RestartRow_0(self);
 };;
 
-ResultIterator.prototype['Next'] = ResultIterator.prototype.Next = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['Next'] = ResultIterator.prototype.Next = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_ResultIterator_Next_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return !!(_emscripten_bind_ResultIterator_Next_1(self, level));
 };;
 
-ResultIterator.prototype['IsAtBeginningOf'] = ResultIterator.prototype.IsAtBeginningOf = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['IsAtBeginningOf'] = ResultIterator.prototype.IsAtBeginningOf = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_ResultIterator_IsAtBeginningOf_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return !!(_emscripten_bind_ResultIterator_IsAtBeginningOf_1(self, level));
 };;
 
-ResultIterator.prototype['IsAtFinalElement'] = ResultIterator.prototype.IsAtFinalElement = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+ResultIterator.prototype['IsAtFinalElement'] = ResultIterator.prototype.IsAtFinalElement = /** @suppress {undefinedVars, duplicate} */function(level, element) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  return !!(_emscripten_bind_ResultIterator_IsAtFinalElement_2(self, arg0, arg1));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (element && typeof element === 'object') element = element.ptr;
+  return !!(_emscripten_bind_ResultIterator_IsAtFinalElement_2(self, level, element));
 };;
 
-ResultIterator.prototype['Cmp'] = ResultIterator.prototype.Cmp = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['Cmp'] = ResultIterator.prototype.Cmp = /** @suppress {undefinedVars, duplicate} */function(other) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_ResultIterator_Cmp_1(self, arg0);
+  if (other && typeof other === 'object') other = other.ptr;
+  return _emscripten_bind_ResultIterator_Cmp_1(self, other);
 };;
 
-ResultIterator.prototype['SetBoundingBoxComponents'] = ResultIterator.prototype.SetBoundingBoxComponents = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+ResultIterator.prototype['SetBoundingBoxComponents'] = ResultIterator.prototype.SetBoundingBoxComponents = /** @suppress {undefinedVars, duplicate} */function(include_upper_dots, include_lower_dots) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_ResultIterator_SetBoundingBoxComponents_2(self, arg0, arg1);
+  if (include_upper_dots && typeof include_upper_dots === 'object') include_upper_dots = include_upper_dots.ptr;
+  if (include_lower_dots && typeof include_lower_dots === 'object') include_lower_dots = include_lower_dots.ptr;
+  _emscripten_bind_ResultIterator_SetBoundingBoxComponents_2(self, include_upper_dots, include_lower_dots);
 };;
 
-ResultIterator.prototype['BoundingBox'] = ResultIterator.prototype.BoundingBox = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4, arg5) {
+ResultIterator.prototype['BoundingBox'] = ResultIterator.prototype.BoundingBox = /** @suppress {undefinedVars, duplicate} */function(level, padding, left, top, right, bottom) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg5 && typeof arg5 === 'object') arg5 = arg5.ptr;
-  if (arg5 === undefined) { return !!(_emscripten_bind_ResultIterator_BoundingBox_5(self, arg0, arg1, arg2, arg3, arg4)) }
-  return !!(_emscripten_bind_ResultIterator_BoundingBox_6(self, arg0, arg1, arg2, arg3, arg4, arg5));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (padding && typeof padding === 'object') padding = padding.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  if (right && typeof right === 'object') right = right.ptr;
+  if (bottom && typeof bottom === 'object') bottom = bottom.ptr;
+  if (bottom === undefined) { return !!(_emscripten_bind_ResultIterator_BoundingBox_5(self, level, padding, left, top, right)) }
+  return !!(_emscripten_bind_ResultIterator_BoundingBox_6(self, level, padding, left, top, right, bottom));
 };;
 
-ResultIterator.prototype['BoundingBoxInternal'] = ResultIterator.prototype.BoundingBoxInternal = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+ResultIterator.prototype['BoundingBoxInternal'] = ResultIterator.prototype.BoundingBoxInternal = /** @suppress {undefinedVars, duplicate} */function(level, left, top, right, bottom) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  return !!(_emscripten_bind_ResultIterator_BoundingBoxInternal_5(self, arg0, arg1, arg2, arg3, arg4));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  if (right && typeof right === 'object') right = right.ptr;
+  if (bottom && typeof bottom === 'object') bottom = bottom.ptr;
+  return !!(_emscripten_bind_ResultIterator_BoundingBoxInternal_5(self, level, left, top, right, bottom));
 };;
 
-ResultIterator.prototype['Empty'] = ResultIterator.prototype.Empty = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['Empty'] = ResultIterator.prototype.Empty = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_ResultIterator_Empty_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return !!(_emscripten_bind_ResultIterator_Empty_1(self, level));
 };;
 
 ResultIterator.prototype['BlockType'] = ResultIterator.prototype.BlockType = /** @suppress {undefinedVars, duplicate} */function() {
@@ -369,48 +369,48 @@ ResultIterator.prototype['BlockPolygon'] = ResultIterator.prototype.BlockPolygon
   return wrapPointer(_emscripten_bind_ResultIterator_BlockPolygon_0(self), Pta);
 };;
 
-ResultIterator.prototype['GetBinaryImage'] = ResultIterator.prototype.GetBinaryImage = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['GetBinaryImage'] = ResultIterator.prototype.GetBinaryImage = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_ResultIterator_GetBinaryImage_1(self, arg0), Pix);
+  if (level && typeof level === 'object') level = level.ptr;
+  return wrapPointer(_emscripten_bind_ResultIterator_GetBinaryImage_1(self, level), Pix);
 };;
 
-ResultIterator.prototype['GetImage'] = ResultIterator.prototype.GetImage = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+ResultIterator.prototype['GetImage'] = ResultIterator.prototype.GetImage = /** @suppress {undefinedVars, duplicate} */function(level, padding, original_img, left, top) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  return wrapPointer(_emscripten_bind_ResultIterator_GetImage_5(self, arg0, arg1, arg2, arg3, arg4), Pix);
+  if (level && typeof level === 'object') level = level.ptr;
+  if (padding && typeof padding === 'object') padding = padding.ptr;
+  if (original_img && typeof original_img === 'object') original_img = original_img.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  return wrapPointer(_emscripten_bind_ResultIterator_GetImage_5(self, level, padding, original_img, left, top), Pix);
 };;
 
-ResultIterator.prototype['Baseline'] = ResultIterator.prototype.Baseline = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+ResultIterator.prototype['Baseline'] = ResultIterator.prototype.Baseline = /** @suppress {undefinedVars, duplicate} */function(level, x1, y1, x2, y2) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  return !!(_emscripten_bind_ResultIterator_Baseline_5(self, arg0, arg1, arg2, arg3, arg4));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (x1 && typeof x1 === 'object') x1 = x1.ptr;
+  if (y1 && typeof y1 === 'object') y1 = y1.ptr;
+  if (x2 && typeof x2 === 'object') x2 = x2.ptr;
+  if (y2 && typeof y2 === 'object') y2 = y2.ptr;
+  return !!(_emscripten_bind_ResultIterator_Baseline_5(self, level, x1, y1, x2, y2));
 };;
 
-ResultIterator.prototype['Orientation'] = ResultIterator.prototype.Orientation = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3) {
+ResultIterator.prototype['Orientation'] = ResultIterator.prototype.Orientation = /** @suppress {undefinedVars, duplicate} */function(orientation, writing_direction, textline_order, deskew_angle) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  _emscripten_bind_ResultIterator_Orientation_4(self, arg0, arg1, arg2, arg3);
+  if (orientation && typeof orientation === 'object') orientation = orientation.ptr;
+  if (writing_direction && typeof writing_direction === 'object') writing_direction = writing_direction.ptr;
+  if (textline_order && typeof textline_order === 'object') textline_order = textline_order.ptr;
+  if (deskew_angle && typeof deskew_angle === 'object') deskew_angle = deskew_angle.ptr;
+  _emscripten_bind_ResultIterator_Orientation_4(self, orientation, writing_direction, textline_order, deskew_angle);
 };;
 
-ResultIterator.prototype['ParagraphInfo'] = ResultIterator.prototype.ParagraphInfo = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3) {
+ResultIterator.prototype['ParagraphInfo'] = ResultIterator.prototype.ParagraphInfo = /** @suppress {undefinedVars, duplicate} */function(justification, is_list_item, is_crown, first_line_indent) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  _emscripten_bind_ResultIterator_ParagraphInfo_4(self, arg0, arg1, arg2, arg3);
+  if (justification && typeof justification === 'object') justification = justification.ptr;
+  if (is_list_item && typeof is_list_item === 'object') is_list_item = is_list_item.ptr;
+  if (is_crown && typeof is_crown === 'object') is_crown = is_crown.ptr;
+  if (first_line_indent && typeof first_line_indent === 'object') first_line_indent = first_line_indent.ptr;
+  _emscripten_bind_ResultIterator_ParagraphInfo_4(self, justification, is_list_item, is_crown, first_line_indent);
 };;
 
 ResultIterator.prototype['ParagraphIsLtr'] = ResultIterator.prototype.ParagraphIsLtr = /** @suppress {undefinedVars, duplicate} */function() {
@@ -418,50 +418,50 @@ ResultIterator.prototype['ParagraphIsLtr'] = ResultIterator.prototype.ParagraphI
   return !!(_emscripten_bind_ResultIterator_ParagraphIsLtr_0(self));
 };;
 
-ResultIterator.prototype['GetUTF8Text'] = ResultIterator.prototype.GetUTF8Text = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['GetUTF8Text'] = ResultIterator.prototype.GetUTF8Text = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_ResultIterator_GetUTF8Text_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return UTF8ToString(_emscripten_bind_ResultIterator_GetUTF8Text_1(self, level));
 };;
 
-ResultIterator.prototype['SetLineSeparator'] = ResultIterator.prototype.SetLineSeparator = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['SetLineSeparator'] = ResultIterator.prototype.SetLineSeparator = /** @suppress {undefinedVars, duplicate} */function(new_line) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  _emscripten_bind_ResultIterator_SetLineSeparator_1(self, arg0);
+  if (new_line && typeof new_line === 'object') new_line = new_line.ptr;
+  else new_line = ensureString(new_line);
+  _emscripten_bind_ResultIterator_SetLineSeparator_1(self, new_line);
 };;
 
-ResultIterator.prototype['SetParagraphSeparator'] = ResultIterator.prototype.SetParagraphSeparator = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['SetParagraphSeparator'] = ResultIterator.prototype.SetParagraphSeparator = /** @suppress {undefinedVars, duplicate} */function(new_para) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  _emscripten_bind_ResultIterator_SetParagraphSeparator_1(self, arg0);
+  if (new_para && typeof new_para === 'object') new_para = new_para.ptr;
+  else new_para = ensureString(new_para);
+  _emscripten_bind_ResultIterator_SetParagraphSeparator_1(self, new_para);
 };;
 
-ResultIterator.prototype['Confidence'] = ResultIterator.prototype.Confidence = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['Confidence'] = ResultIterator.prototype.Confidence = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_ResultIterator_Confidence_1(self, arg0);
+  if (level && typeof level === 'object') level = level.ptr;
+  return _emscripten_bind_ResultIterator_Confidence_1(self, level);
 };;
 
-ResultIterator.prototype['WordFontAttributes'] = ResultIterator.prototype.WordFontAttributes = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7) {
+ResultIterator.prototype['WordFontAttributes'] = ResultIterator.prototype.WordFontAttributes = /** @suppress {undefinedVars, duplicate} */function(is_bold, is_italic, is_underlined, is_monospace, is_serif, is_smallcaps, pointsize, font_id) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg5 && typeof arg5 === 'object') arg5 = arg5.ptr;
-  if (arg6 && typeof arg6 === 'object') arg6 = arg6.ptr;
-  if (arg7 && typeof arg7 === 'object') arg7 = arg7.ptr;
-  return Pointer_stringify(_emscripten_bind_ResultIterator_WordFontAttributes_8(self, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7));
+  if (is_bold && typeof is_bold === 'object') is_bold = is_bold.ptr;
+  if (is_italic && typeof is_italic === 'object') is_italic = is_italic.ptr;
+  if (is_underlined && typeof is_underlined === 'object') is_underlined = is_underlined.ptr;
+  if (is_monospace && typeof is_monospace === 'object') is_monospace = is_monospace.ptr;
+  if (is_serif && typeof is_serif === 'object') is_serif = is_serif.ptr;
+  if (is_smallcaps && typeof is_smallcaps === 'object') is_smallcaps = is_smallcaps.ptr;
+  if (pointsize && typeof pointsize === 'object') pointsize = pointsize.ptr;
+  if (font_id && typeof font_id === 'object') font_id = font_id.ptr;
+  return UTF8ToString(_emscripten_bind_ResultIterator_WordFontAttributes_8(self, is_bold, is_italic, is_underlined, is_monospace, is_serif, is_smallcaps, pointsize, font_id));
 };;
 
 ResultIterator.prototype['WordRecognitionLanguage'] = ResultIterator.prototype.WordRecognitionLanguage = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_ResultIterator_WordRecognitionLanguage_0(self));
+  return UTF8ToString(_emscripten_bind_ResultIterator_WordRecognitionLanguage_0(self));
 };;
 
 ResultIterator.prototype['WordDirection'] = ResultIterator.prototype.WordDirection = /** @suppress {undefinedVars, duplicate} */function() {
@@ -489,28 +489,28 @@ ResultIterator.prototype['HasTruthString'] = ResultIterator.prototype.HasTruthSt
   return !!(_emscripten_bind_ResultIterator_HasTruthString_0(self));
 };;
 
-ResultIterator.prototype['EquivalentToTruth'] = ResultIterator.prototype.EquivalentToTruth = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['EquivalentToTruth'] = ResultIterator.prototype.EquivalentToTruth = /** @suppress {undefinedVars, duplicate} */function(str) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return !!(_emscripten_bind_ResultIterator_EquivalentToTruth_1(self, arg0));
+  if (str && typeof str === 'object') str = str.ptr;
+  else str = ensureString(str);
+  return !!(_emscripten_bind_ResultIterator_EquivalentToTruth_1(self, str));
 };;
 
 ResultIterator.prototype['WordTruthUTF8Text'] = ResultIterator.prototype.WordTruthUTF8Text = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_ResultIterator_WordTruthUTF8Text_0(self));
+  return UTF8ToString(_emscripten_bind_ResultIterator_WordTruthUTF8Text_0(self));
 };;
 
 ResultIterator.prototype['WordNormedUTF8Text'] = ResultIterator.prototype.WordNormedUTF8Text = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_ResultIterator_WordNormedUTF8Text_0(self));
+  return UTF8ToString(_emscripten_bind_ResultIterator_WordNormedUTF8Text_0(self));
 };;
 
-ResultIterator.prototype['WordLattice'] = ResultIterator.prototype.WordLattice = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+ResultIterator.prototype['WordLattice'] = ResultIterator.prototype.WordLattice = /** @suppress {undefinedVars, duplicate} */function(lattice_size) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_ResultIterator_WordLattice_1(self, arg0));
+  if (lattice_size && typeof lattice_size === 'object') lattice_size = lattice_size.ptr;
+  return UTF8ToString(_emscripten_bind_ResultIterator_WordLattice_1(self, lattice_size));
 };;
 
 ResultIterator.prototype['SymbolIsSuperscript'] = ResultIterator.prototype.SymbolIsSuperscript = /** @suppress {undefinedVars, duplicate} */function() {
@@ -584,64 +584,64 @@ PageIterator.prototype['RestartRow'] = PageIterator.prototype.RestartRow = /** @
   _emscripten_bind_PageIterator_RestartRow_0(self);
 };;
 
-PageIterator.prototype['Next'] = PageIterator.prototype.Next = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+PageIterator.prototype['Next'] = PageIterator.prototype.Next = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_PageIterator_Next_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return !!(_emscripten_bind_PageIterator_Next_1(self, level));
 };;
 
-PageIterator.prototype['IsAtBeginningOf'] = PageIterator.prototype.IsAtBeginningOf = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+PageIterator.prototype['IsAtBeginningOf'] = PageIterator.prototype.IsAtBeginningOf = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_PageIterator_IsAtBeginningOf_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return !!(_emscripten_bind_PageIterator_IsAtBeginningOf_1(self, level));
 };;
 
-PageIterator.prototype['IsAtFinalElement'] = PageIterator.prototype.IsAtFinalElement = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+PageIterator.prototype['IsAtFinalElement'] = PageIterator.prototype.IsAtFinalElement = /** @suppress {undefinedVars, duplicate} */function(level, element) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  return !!(_emscripten_bind_PageIterator_IsAtFinalElement_2(self, arg0, arg1));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (element && typeof element === 'object') element = element.ptr;
+  return !!(_emscripten_bind_PageIterator_IsAtFinalElement_2(self, level, element));
 };;
 
-PageIterator.prototype['Cmp'] = PageIterator.prototype.Cmp = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+PageIterator.prototype['Cmp'] = PageIterator.prototype.Cmp = /** @suppress {undefinedVars, duplicate} */function(other) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_PageIterator_Cmp_1(self, arg0);
+  if (other && typeof other === 'object') other = other.ptr;
+  return _emscripten_bind_PageIterator_Cmp_1(self, other);
 };;
 
-PageIterator.prototype['SetBoundingBoxComponents'] = PageIterator.prototype.SetBoundingBoxComponents = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+PageIterator.prototype['SetBoundingBoxComponents'] = PageIterator.prototype.SetBoundingBoxComponents = /** @suppress {undefinedVars, duplicate} */function(include_upper_dots, include_lower_dots) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  _emscripten_bind_PageIterator_SetBoundingBoxComponents_2(self, arg0, arg1);
+  if (include_upper_dots && typeof include_upper_dots === 'object') include_upper_dots = include_upper_dots.ptr;
+  if (include_lower_dots && typeof include_lower_dots === 'object') include_lower_dots = include_lower_dots.ptr;
+  _emscripten_bind_PageIterator_SetBoundingBoxComponents_2(self, include_upper_dots, include_lower_dots);
 };;
 
-PageIterator.prototype['BoundingBox'] = PageIterator.prototype.BoundingBox = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4, arg5) {
+PageIterator.prototype['BoundingBox'] = PageIterator.prototype.BoundingBox = /** @suppress {undefinedVars, duplicate} */function(level, padding, left, top, right, bottom) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg5 && typeof arg5 === 'object') arg5 = arg5.ptr;
-  if (arg5 === undefined) { return !!(_emscripten_bind_PageIterator_BoundingBox_5(self, arg0, arg1, arg2, arg3, arg4)) }
-  return !!(_emscripten_bind_PageIterator_BoundingBox_6(self, arg0, arg1, arg2, arg3, arg4, arg5));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (padding && typeof padding === 'object') padding = padding.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  if (right && typeof right === 'object') right = right.ptr;
+  if (bottom && typeof bottom === 'object') bottom = bottom.ptr;
+  if (bottom === undefined) { return !!(_emscripten_bind_PageIterator_BoundingBox_5(self, level, padding, left, top, right)) }
+  return !!(_emscripten_bind_PageIterator_BoundingBox_6(self, level, padding, left, top, right, bottom));
 };;
 
-PageIterator.prototype['BoundingBoxInternal'] = PageIterator.prototype.BoundingBoxInternal = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+PageIterator.prototype['BoundingBoxInternal'] = PageIterator.prototype.BoundingBoxInternal = /** @suppress {undefinedVars, duplicate} */function(level, left, top, right, bottom) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  return !!(_emscripten_bind_PageIterator_BoundingBoxInternal_5(self, arg0, arg1, arg2, arg3, arg4));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  if (right && typeof right === 'object') right = right.ptr;
+  if (bottom && typeof bottom === 'object') bottom = bottom.ptr;
+  return !!(_emscripten_bind_PageIterator_BoundingBoxInternal_5(self, level, left, top, right, bottom));
 };;
 
-PageIterator.prototype['Empty'] = PageIterator.prototype.Empty = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+PageIterator.prototype['Empty'] = PageIterator.prototype.Empty = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_PageIterator_Empty_1(self, arg0));
+  if (level && typeof level === 'object') level = level.ptr;
+  return !!(_emscripten_bind_PageIterator_Empty_1(self, level));
 };;
 
 PageIterator.prototype['BlockType'] = PageIterator.prototype.BlockType = /** @suppress {undefinedVars, duplicate} */function() {
@@ -654,48 +654,48 @@ PageIterator.prototype['BlockPolygon'] = PageIterator.prototype.BlockPolygon = /
   return wrapPointer(_emscripten_bind_PageIterator_BlockPolygon_0(self), Pta);
 };;
 
-PageIterator.prototype['GetBinaryImage'] = PageIterator.prototype.GetBinaryImage = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+PageIterator.prototype['GetBinaryImage'] = PageIterator.prototype.GetBinaryImage = /** @suppress {undefinedVars, duplicate} */function(level) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_PageIterator_GetBinaryImage_1(self, arg0), Pix);
+  if (level && typeof level === 'object') level = level.ptr;
+  return wrapPointer(_emscripten_bind_PageIterator_GetBinaryImage_1(self, level), Pix);
 };;
 
-PageIterator.prototype['GetImage'] = PageIterator.prototype.GetImage = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+PageIterator.prototype['GetImage'] = PageIterator.prototype.GetImage = /** @suppress {undefinedVars, duplicate} */function(level, padding, original_img, left, top) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  return wrapPointer(_emscripten_bind_PageIterator_GetImage_5(self, arg0, arg1, arg2, arg3, arg4), Pix);
+  if (level && typeof level === 'object') level = level.ptr;
+  if (padding && typeof padding === 'object') padding = padding.ptr;
+  if (original_img && typeof original_img === 'object') original_img = original_img.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  return wrapPointer(_emscripten_bind_PageIterator_GetImage_5(self, level, padding, original_img, left, top), Pix);
 };;
 
-PageIterator.prototype['Baseline'] = PageIterator.prototype.Baseline = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+PageIterator.prototype['Baseline'] = PageIterator.prototype.Baseline = /** @suppress {undefinedVars, duplicate} */function(level, x1, y1, x2, y2) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  return !!(_emscripten_bind_PageIterator_Baseline_5(self, arg0, arg1, arg2, arg3, arg4));
+  if (level && typeof level === 'object') level = level.ptr;
+  if (x1 && typeof x1 === 'object') x1 = x1.ptr;
+  if (y1 && typeof y1 === 'object') y1 = y1.ptr;
+  if (x2 && typeof x2 === 'object') x2 = x2.ptr;
+  if (y2 && typeof y2 === 'object') y2 = y2.ptr;
+  return !!(_emscripten_bind_PageIterator_Baseline_5(self, level, x1, y1, x2, y2));
 };;
 
-PageIterator.prototype['Orientation'] = PageIterator.prototype.Orientation = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3) {
+PageIterator.prototype['Orientation'] = PageIterator.prototype.Orientation = /** @suppress {undefinedVars, duplicate} */function(orientation, writing_direction, textline_order, deskew_angle) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  _emscripten_bind_PageIterator_Orientation_4(self, arg0, arg1, arg2, arg3);
+  if (orientation && typeof orientation === 'object') orientation = orientation.ptr;
+  if (writing_direction && typeof writing_direction === 'object') writing_direction = writing_direction.ptr;
+  if (textline_order && typeof textline_order === 'object') textline_order = textline_order.ptr;
+  if (deskew_angle && typeof deskew_angle === 'object') deskew_angle = deskew_angle.ptr;
+  _emscripten_bind_PageIterator_Orientation_4(self, orientation, writing_direction, textline_order, deskew_angle);
 };;
 
-PageIterator.prototype['ParagraphInfo'] = PageIterator.prototype.ParagraphInfo = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3) {
+PageIterator.prototype['ParagraphInfo'] = PageIterator.prototype.ParagraphInfo = /** @suppress {undefinedVars, duplicate} */function(justification, is_list_item, is_crown, first_line_indent) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  _emscripten_bind_PageIterator_ParagraphInfo_4(self, arg0, arg1, arg2, arg3);
+  if (justification && typeof justification === 'object') justification = justification.ptr;
+  if (is_list_item && typeof is_list_item === 'object') is_list_item = is_list_item.ptr;
+  if (is_crown && typeof is_crown === 'object') is_crown = is_crown.ptr;
+  if (first_line_indent && typeof first_line_indent === 'object') first_line_indent = first_line_indent.ptr;
+  _emscripten_bind_PageIterator_ParagraphInfo_4(self, justification, is_list_item, is_crown, first_line_indent);
 };;
 
   PageIterator.prototype['__destroy__'] = PageIterator.prototype.__destroy__ = /** @suppress {undefinedVars, duplicate} */function() {
@@ -715,9 +715,9 @@ Module['WritingDirection'] = WritingDirection;
   _emscripten_bind_WritingDirection___destroy___0(self);
 };
 // WordChoiceIterator
-/** @suppress {undefinedVars, duplicate} */function WordChoiceIterator(arg0) {
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  this.ptr = _emscripten_bind_WordChoiceIterator_WordChoiceIterator_1(arg0);
+/** @suppress {undefinedVars, duplicate} */function WordChoiceIterator(result_it) {
+  if (result_it && typeof result_it === 'object') result_it = result_it.ptr;
+  this.ptr = _emscripten_bind_WordChoiceIterator_WordChoiceIterator_1(result_it);
   getCache(WordChoiceIterator)[this.ptr] = this;
 };;
 WordChoiceIterator.prototype = Object.create(WrapperObject.prototype);
@@ -733,7 +733,7 @@ WordChoiceIterator.prototype['Next'] = WordChoiceIterator.prototype.Next = /** @
 
 WordChoiceIterator.prototype['GetUTF8Text'] = WordChoiceIterator.prototype.GetUTF8Text = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_WordChoiceIterator_GetUTF8Text_0(self));
+  return UTF8ToString(_emscripten_bind_WordChoiceIterator_GetUTF8Text_0(self));
 };;
 
 WordChoiceIterator.prototype['Confidence'] = WordChoiceIterator.prototype.Confidence = /** @suppress {undefinedVars, duplicate} */function() {
@@ -783,14 +783,14 @@ Module['Box'] = Box;
   _emscripten_bind_Box___destroy___0(self);
 };
 // TessPDFRenderer
-/** @suppress {undefinedVars, duplicate} */function TessPDFRenderer(arg0, arg1, arg2) {
+/** @suppress {undefinedVars, duplicate} */function TessPDFRenderer(outputbase, datadir, textonly) {
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  this.ptr = _emscripten_bind_TessPDFRenderer_TessPDFRenderer_3(arg0, arg1, arg2);
+  if (outputbase && typeof outputbase === 'object') outputbase = outputbase.ptr;
+  else outputbase = ensureString(outputbase);
+  if (datadir && typeof datadir === 'object') datadir = datadir.ptr;
+  else datadir = ensureString(datadir);
+  if (textonly && typeof textonly === 'object') textonly = textonly.ptr;
+  this.ptr = _emscripten_bind_TessPDFRenderer_TessPDFRenderer_3(outputbase, datadir, textonly);
   getCache(TessPDFRenderer)[this.ptr] = this;
 };;
 TessPDFRenderer.prototype = Object.create(WrapperObject.prototype);
@@ -799,18 +799,18 @@ TessPDFRenderer.prototype.__class__ = TessPDFRenderer;
 TessPDFRenderer.__cache__ = {};
 Module['TessPDFRenderer'] = TessPDFRenderer;
 
-TessPDFRenderer.prototype['BeginDocument'] = TessPDFRenderer.prototype.BeginDocument = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessPDFRenderer.prototype['BeginDocument'] = TessPDFRenderer.prototype.BeginDocument = /** @suppress {undefinedVars, duplicate} */function(title) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return !!(_emscripten_bind_TessPDFRenderer_BeginDocument_1(self, arg0));
+  if (title && typeof title === 'object') title = title.ptr;
+  else title = ensureString(title);
+  return !!(_emscripten_bind_TessPDFRenderer_BeginDocument_1(self, title));
 };;
 
-TessPDFRenderer.prototype['AddImage'] = TessPDFRenderer.prototype.AddImage = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessPDFRenderer.prototype['AddImage'] = TessPDFRenderer.prototype.AddImage = /** @suppress {undefinedVars, duplicate} */function(api) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_TessPDFRenderer_AddImage_1(self, arg0));
+  if (api && typeof api === 'object') api = api.ptr;
+  return !!(_emscripten_bind_TessPDFRenderer_AddImage_1(self, api));
 };;
 
 TessPDFRenderer.prototype['EndDocument'] = TessPDFRenderer.prototype.EndDocument = /** @suppress {undefinedVars, duplicate} */function() {
@@ -825,12 +825,12 @@ TessPDFRenderer.prototype['happy'] = TessPDFRenderer.prototype.happy = /** @supp
 
 TessPDFRenderer.prototype['file_extension'] = TessPDFRenderer.prototype.file_extension = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessPDFRenderer_file_extension_0(self));
+  return UTF8ToString(_emscripten_bind_TessPDFRenderer_file_extension_0(self));
 };;
 
 TessPDFRenderer.prototype['title'] = TessPDFRenderer.prototype.title = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessPDFRenderer_title_0(self));
+  return UTF8ToString(_emscripten_bind_TessPDFRenderer_title_0(self));
 };;
 
 TessPDFRenderer.prototype['imagenum'] = TessPDFRenderer.prototype.imagenum = /** @suppress {undefinedVars, duplicate} */function() {
@@ -867,9 +867,9 @@ Module['FloatPtr'] = FloatPtr;
   _emscripten_bind_FloatPtr___destroy___0(self);
 };
 // ChoiceIterator
-/** @suppress {undefinedVars, duplicate} */function ChoiceIterator(arg0) {
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  this.ptr = _emscripten_bind_ChoiceIterator_ChoiceIterator_1(arg0);
+/** @suppress {undefinedVars, duplicate} */function ChoiceIterator(result_it) {
+  if (result_it && typeof result_it === 'object') result_it = result_it.ptr;
+  this.ptr = _emscripten_bind_ChoiceIterator_ChoiceIterator_1(result_it);
   getCache(ChoiceIterator)[this.ptr] = this;
 };;
 ChoiceIterator.prototype = Object.create(WrapperObject.prototype);
@@ -885,7 +885,7 @@ ChoiceIterator.prototype['Next'] = ChoiceIterator.prototype.Next = /** @suppress
 
 ChoiceIterator.prototype['GetUTF8Text'] = ChoiceIterator.prototype.GetUTF8Text = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_ChoiceIterator_GetUTF8Text_0(self));
+  return UTF8ToString(_emscripten_bind_ChoiceIterator_GetUTF8Text_0(self));
 };;
 
 ChoiceIterator.prototype['Confidence'] = ChoiceIterator.prototype.Confidence = /** @suppress {undefinedVars, duplicate} */function() {
@@ -917,18 +917,18 @@ UNICHARSET.prototype.__class__ = UNICHARSET;
 UNICHARSET.__cache__ = {};
 Module['UNICHARSET'] = UNICHARSET;
 
-UNICHARSET.prototype['get_script_from_script_id'] = UNICHARSET.prototype.get_script_from_script_id = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+UNICHARSET.prototype['get_script_from_script_id'] = UNICHARSET.prototype.get_script_from_script_id = /** @suppress {undefinedVars, duplicate} */function(id) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_UNICHARSET_get_script_from_script_id_1(self, arg0));
+  if (id && typeof id === 'object') id = id.ptr;
+  return UTF8ToString(_emscripten_bind_UNICHARSET_get_script_from_script_id_1(self, id));
 };;
 
-UNICHARSET.prototype['get_script_id_from_name'] = UNICHARSET.prototype.get_script_id_from_name = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+UNICHARSET.prototype['get_script_id_from_name'] = UNICHARSET.prototype.get_script_id_from_name = /** @suppress {undefinedVars, duplicate} */function(script_name) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return _emscripten_bind_UNICHARSET_get_script_id_from_name_1(self, arg0);
+  if (script_name && typeof script_name === 'object') script_name = script_name.ptr;
+  else script_name = ensureString(script_name);
+  return _emscripten_bind_UNICHARSET_get_script_id_from_name_1(self, script_name);
 };;
 
 UNICHARSET.prototype['get_script_table_size'] = UNICHARSET.prototype.get_script_table_size = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1157,7 +1157,7 @@ Module['Pix'] = Pix;
     Object.defineProperty(Pix.prototype, 'special', { get: Pix.prototype.get_special });
   Pix.prototype['get_text'] = Pix.prototype.get_text = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_Pix_get_text_0(self));
+  return UTF8ToString(_emscripten_bind_Pix_get_text_0(self));
 };
     Object.defineProperty(Pix.prototype, 'text', { get: Pix.prototype.get_text });
   Pix.prototype['get_colormap'] = Pix.prototype.get_colormap = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1223,7 +1223,7 @@ Module['TessBaseAPI'] = TessBaseAPI;
 
 TessBaseAPI.prototype['Version'] = TessBaseAPI.prototype.Version = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_Version_0(self));
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_Version_0(self));
 };;
 
 TessBaseAPI.prototype['CatchSignals'] = TessBaseAPI.prototype.CatchSignals = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1231,23 +1231,23 @@ TessBaseAPI.prototype['CatchSignals'] = TessBaseAPI.prototype.CatchSignals = /**
   _emscripten_bind_TessBaseAPI_CatchSignals_0(self);
 };;
 
-TessBaseAPI.prototype['SetInputName'] = TessBaseAPI.prototype.SetInputName = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['SetInputName'] = TessBaseAPI.prototype.SetInputName = /** @suppress {undefinedVars, duplicate} */function(name) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  _emscripten_bind_TessBaseAPI_SetInputName_1(self, arg0);
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  _emscripten_bind_TessBaseAPI_SetInputName_1(self, name);
 };;
 
 TessBaseAPI.prototype['GetInputName'] = TessBaseAPI.prototype.GetInputName = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetInputName_0(self));
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetInputName_0(self));
 };;
 
-TessBaseAPI.prototype['SetInputImage'] = TessBaseAPI.prototype.SetInputImage = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['SetInputImage'] = TessBaseAPI.prototype.SetInputImage = /** @suppress {undefinedVars, duplicate} */function(pix) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_TessBaseAPI_SetInputImage_1(self, arg0);
+  if (pix && typeof pix === 'object') pix = pix.ptr;
+  _emscripten_bind_TessBaseAPI_SetInputImage_1(self, pix);
 };;
 
 TessBaseAPI.prototype['GetInputImage'] = TessBaseAPI.prototype.GetInputImage = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1262,70 +1262,70 @@ TessBaseAPI.prototype['GetSourceYResolution'] = TessBaseAPI.prototype.GetSourceY
 
 TessBaseAPI.prototype['GetDatapath'] = TessBaseAPI.prototype.GetDatapath = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetDatapath_0(self));
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetDatapath_0(self));
 };;
 
-TessBaseAPI.prototype['SetOutputName'] = TessBaseAPI.prototype.SetOutputName = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['SetOutputName'] = TessBaseAPI.prototype.SetOutputName = /** @suppress {undefinedVars, duplicate} */function(name) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  _emscripten_bind_TessBaseAPI_SetOutputName_1(self, arg0);
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  _emscripten_bind_TessBaseAPI_SetOutputName_1(self, name);
 };;
 
-TessBaseAPI.prototype['SetVariable'] = TessBaseAPI.prototype.SetVariable = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['SetVariable'] = TessBaseAPI.prototype.SetVariable = /** @suppress {undefinedVars, duplicate} */function(name, value) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  return !!(_emscripten_bind_TessBaseAPI_SetVariable_2(self, arg0, arg1));
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  if (value && typeof value === 'object') value = value.ptr;
+  else value = ensureString(value);
+  return !!(_emscripten_bind_TessBaseAPI_SetVariable_2(self, name, value));
 };;
 
-TessBaseAPI.prototype['SetDebugVariable'] = TessBaseAPI.prototype.SetDebugVariable = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['SetDebugVariable'] = TessBaseAPI.prototype.SetDebugVariable = /** @suppress {undefinedVars, duplicate} */function(name, value) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  return !!(_emscripten_bind_TessBaseAPI_SetDebugVariable_2(self, arg0, arg1));
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  if (value && typeof value === 'object') value = value.ptr;
+  else value = ensureString(value);
+  return !!(_emscripten_bind_TessBaseAPI_SetDebugVariable_2(self, name, value));
 };;
 
-TessBaseAPI.prototype['GetIntVariable'] = TessBaseAPI.prototype.GetIntVariable = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['GetIntVariable'] = TessBaseAPI.prototype.GetIntVariable = /** @suppress {undefinedVars, duplicate} */function(name, value) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  return !!(_emscripten_bind_TessBaseAPI_GetIntVariable_2(self, arg0, arg1));
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  if (value && typeof value === 'object') value = value.ptr;
+  return !!(_emscripten_bind_TessBaseAPI_GetIntVariable_2(self, name, value));
 };;
 
-TessBaseAPI.prototype['GetBoolVariable'] = TessBaseAPI.prototype.GetBoolVariable = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['GetBoolVariable'] = TessBaseAPI.prototype.GetBoolVariable = /** @suppress {undefinedVars, duplicate} */function(name, value) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  return !!(_emscripten_bind_TessBaseAPI_GetBoolVariable_2(self, arg0, arg1));
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  if (value && typeof value === 'object') value = value.ptr;
+  return !!(_emscripten_bind_TessBaseAPI_GetBoolVariable_2(self, name, value));
 };;
 
-TessBaseAPI.prototype['GetDoubleVariable'] = TessBaseAPI.prototype.GetDoubleVariable = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['GetDoubleVariable'] = TessBaseAPI.prototype.GetDoubleVariable = /** @suppress {undefinedVars, duplicate} */function(name, value) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  return !!(_emscripten_bind_TessBaseAPI_GetDoubleVariable_2(self, arg0, arg1));
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  if (value && typeof value === 'object') value = value.ptr;
+  return !!(_emscripten_bind_TessBaseAPI_GetDoubleVariable_2(self, name, value));
 };;
 
-TessBaseAPI.prototype['GetStringVariable'] = TessBaseAPI.prototype.GetStringVariable = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetStringVariable'] = TessBaseAPI.prototype.GetStringVariable = /** @suppress {undefinedVars, duplicate} */function(name) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetStringVariable_1(self, arg0));
+  if (name && typeof name === 'object') name = name.ptr;
+  else name = ensureString(name);
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetStringVariable_1(self, name));
 };;
 
 TessBaseAPI.prototype['PrintVariables'] = TessBaseAPI.prototype.PrintVariables = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1333,31 +1333,31 @@ TessBaseAPI.prototype['PrintVariables'] = TessBaseAPI.prototype.PrintVariables =
   _emscripten_bind_TessBaseAPI_PrintVariables_0(self);
 };;
 
-TessBaseAPI.prototype['Init'] = TessBaseAPI.prototype.Init = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2) {
+TessBaseAPI.prototype['Init'] = TessBaseAPI.prototype.Init = /** @suppress {undefinedVars, duplicate} */function(datapath, language, oem) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg2 === undefined) { return _emscripten_bind_TessBaseAPI_Init_2(self, arg0, arg1) }
-  return _emscripten_bind_TessBaseAPI_Init_3(self, arg0, arg1, arg2);
+  if (datapath && typeof datapath === 'object') datapath = datapath.ptr;
+  else datapath = ensureString(datapath);
+  if (language && typeof language === 'object') language = language.ptr;
+  else language = ensureString(language);
+  if (oem && typeof oem === 'object') oem = oem.ptr;
+  if (oem === undefined) { return _emscripten_bind_TessBaseAPI_Init_2(self, datapath, language) }
+  return _emscripten_bind_TessBaseAPI_Init_3(self, datapath, language, oem);
 };;
 
 TessBaseAPI.prototype['GetInitLanguagesAsString'] = TessBaseAPI.prototype.GetInitLanguagesAsString = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetInitLanguagesAsString_0(self));
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetInitLanguagesAsString_0(self));
 };;
 
-TessBaseAPI.prototype['InitLangMod'] = TessBaseAPI.prototype.InitLangMod = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['InitLangMod'] = TessBaseAPI.prototype.InitLangMod = /** @suppress {undefinedVars, duplicate} */function(datapath, language) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  return _emscripten_bind_TessBaseAPI_InitLangMod_2(self, arg0, arg1);
+  if (datapath && typeof datapath === 'object') datapath = datapath.ptr;
+  else datapath = ensureString(datapath);
+  if (language && typeof language === 'object') language = language.ptr;
+  else language = ensureString(language);
+  return _emscripten_bind_TessBaseAPI_InitLangMod_2(self, datapath, language);
 };;
 
 TessBaseAPI.prototype['InitForAnalysePage'] = TessBaseAPI.prototype.InitForAnalysePage = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1365,26 +1365,26 @@ TessBaseAPI.prototype['InitForAnalysePage'] = TessBaseAPI.prototype.InitForAnaly
   _emscripten_bind_TessBaseAPI_InitForAnalysePage_0(self);
 };;
 
-TessBaseAPI.prototype['ReadConfigFile'] = TessBaseAPI.prototype.ReadConfigFile = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['ReadConfigFile'] = TessBaseAPI.prototype.ReadConfigFile = /** @suppress {undefinedVars, duplicate} */function(filename) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  _emscripten_bind_TessBaseAPI_ReadConfigFile_1(self, arg0);
+  if (filename && typeof filename === 'object') filename = filename.ptr;
+  else filename = ensureString(filename);
+  _emscripten_bind_TessBaseAPI_ReadConfigFile_1(self, filename);
 };;
 
-TessBaseAPI.prototype['ReadDebugConfigFile'] = TessBaseAPI.prototype.ReadDebugConfigFile = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['ReadDebugConfigFile'] = TessBaseAPI.prototype.ReadDebugConfigFile = /** @suppress {undefinedVars, duplicate} */function(filename) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  _emscripten_bind_TessBaseAPI_ReadDebugConfigFile_1(self, arg0);
+  if (filename && typeof filename === 'object') filename = filename.ptr;
+  else filename = ensureString(filename);
+  _emscripten_bind_TessBaseAPI_ReadDebugConfigFile_1(self, filename);
 };;
 
-TessBaseAPI.prototype['SetPageSegMode'] = TessBaseAPI.prototype.SetPageSegMode = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['SetPageSegMode'] = TessBaseAPI.prototype.SetPageSegMode = /** @suppress {undefinedVars, duplicate} */function(mode) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_TessBaseAPI_SetPageSegMode_1(self, arg0);
+  if (mode && typeof mode === 'object') mode = mode.ptr;
+  _emscripten_bind_TessBaseAPI_SetPageSegMode_1(self, mode);
 };;
 
 TessBaseAPI.prototype['GetPageSegMode'] = TessBaseAPI.prototype.GetPageSegMode = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1392,16 +1392,16 @@ TessBaseAPI.prototype['GetPageSegMode'] = TessBaseAPI.prototype.GetPageSegMode =
   return _emscripten_bind_TessBaseAPI_GetPageSegMode_0(self);
 };;
 
-TessBaseAPI.prototype['TesseractRect'] = TessBaseAPI.prototype.TesseractRect = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+TessBaseAPI.prototype['TesseractRect'] = TessBaseAPI.prototype.TesseractRect = /** @suppress {undefinedVars, duplicate} */function(imagedata, bytes_per_pixel, bytes_per_line, left, top, width, height) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg5 && typeof arg5 === 'object') arg5 = arg5.ptr;
-  if (arg6 && typeof arg6 === 'object') arg6 = arg6.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_TesseractRect_7(self, arg0, arg1, arg2, arg3, arg4, arg5, arg6));
+  if (imagedata && typeof imagedata === 'object') imagedata = imagedata.ptr;
+  if (bytes_per_pixel && typeof bytes_per_pixel === 'object') bytes_per_pixel = bytes_per_pixel.ptr;
+  if (bytes_per_line && typeof bytes_per_line === 'object') bytes_per_line = bytes_per_line.ptr;
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  if (width && typeof width === 'object') width = width.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_TesseractRect_7(self, imagedata, bytes_per_pixel, bytes_per_line, left, top, width, height));
 };;
 
 TessBaseAPI.prototype['ClearAdaptiveClassifier'] = TessBaseAPI.prototype.ClearAdaptiveClassifier = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1409,33 +1409,33 @@ TessBaseAPI.prototype['ClearAdaptiveClassifier'] = TessBaseAPI.prototype.ClearAd
   _emscripten_bind_TessBaseAPI_ClearAdaptiveClassifier_0(self);
 };;
 
-TessBaseAPI.prototype['SetImage'] = TessBaseAPI.prototype.SetImage = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+TessBaseAPI.prototype['SetImage'] = TessBaseAPI.prototype.SetImage = /** @suppress {undefinedVars, duplicate} */function(imagedata, width, height, bytes_per_pixel, bytes_per_line) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg1 === undefined) { _emscripten_bind_TessBaseAPI_SetImage_1(self, arg0);  return }
-  if (arg2 === undefined) { _emscripten_bind_TessBaseAPI_SetImage_2(self, arg0, arg1);  return }
-  if (arg3 === undefined) { _emscripten_bind_TessBaseAPI_SetImage_3(self, arg0, arg1, arg2);  return }
-  if (arg4 === undefined) { _emscripten_bind_TessBaseAPI_SetImage_4(self, arg0, arg1, arg2, arg3);  return }
-  _emscripten_bind_TessBaseAPI_SetImage_5(self, arg0, arg1, arg2, arg3, arg4);
+  if (imagedata && typeof imagedata === 'object') imagedata = imagedata.ptr;
+  if (width && typeof width === 'object') width = width.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  if (bytes_per_pixel && typeof bytes_per_pixel === 'object') bytes_per_pixel = bytes_per_pixel.ptr;
+  if (bytes_per_line && typeof bytes_per_line === 'object') bytes_per_line = bytes_per_line.ptr;
+  if (width === undefined) { _emscripten_bind_TessBaseAPI_SetImage_1(self, imagedata);  return }
+  if (height === undefined) { _emscripten_bind_TessBaseAPI_SetImage_2(self, imagedata, width);  return }
+  if (bytes_per_pixel === undefined) { _emscripten_bind_TessBaseAPI_SetImage_3(self, imagedata, width, height);  return }
+  if (bytes_per_line === undefined) { _emscripten_bind_TessBaseAPI_SetImage_4(self, imagedata, width, height, bytes_per_pixel);  return }
+  _emscripten_bind_TessBaseAPI_SetImage_5(self, imagedata, width, height, bytes_per_pixel, bytes_per_line);
 };;
 
-TessBaseAPI.prototype['SetSourceResolution'] = TessBaseAPI.prototype.SetSourceResolution = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['SetSourceResolution'] = TessBaseAPI.prototype.SetSourceResolution = /** @suppress {undefinedVars, duplicate} */function(ppi) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  _emscripten_bind_TessBaseAPI_SetSourceResolution_1(self, arg0);
+  if (ppi && typeof ppi === 'object') ppi = ppi.ptr;
+  _emscripten_bind_TessBaseAPI_SetSourceResolution_1(self, ppi);
 };;
 
-TessBaseAPI.prototype['SetRectangle'] = TessBaseAPI.prototype.SetRectangle = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3) {
+TessBaseAPI.prototype['SetRectangle'] = TessBaseAPI.prototype.SetRectangle = /** @suppress {undefinedVars, duplicate} */function(left, top, width, height) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  _emscripten_bind_TessBaseAPI_SetRectangle_4(self, arg0, arg1, arg2, arg3);
+  if (left && typeof left === 'object') left = left.ptr;
+  if (top && typeof top === 'object') top = top.ptr;
+  if (width && typeof width === 'object') width = width.ptr;
+  if (height && typeof height === 'object') height = height.ptr;
+  _emscripten_bind_TessBaseAPI_SetRectangle_4(self, left, top, width, height);
 };;
 
 TessBaseAPI.prototype['GetThresholdedImage'] = TessBaseAPI.prototype.GetThresholdedImage = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1443,57 +1443,57 @@ TessBaseAPI.prototype['GetThresholdedImage'] = TessBaseAPI.prototype.GetThreshol
   return wrapPointer(_emscripten_bind_TessBaseAPI_GetThresholdedImage_0(self), Pix);
 };;
 
-TessBaseAPI.prototype['GetRegions'] = TessBaseAPI.prototype.GetRegions = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetRegions'] = TessBaseAPI.prototype.GetRegions = /** @suppress {undefinedVars, duplicate} */function(pixa) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetRegions_1(self, arg0), Boxa);
+  if (pixa && typeof pixa === 'object') pixa = pixa.ptr;
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetRegions_1(self, pixa), Boxa);
 };;
 
-TessBaseAPI.prototype['GetTextlines'] = TessBaseAPI.prototype.GetTextlines = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4) {
+TessBaseAPI.prototype['GetTextlines'] = TessBaseAPI.prototype.GetTextlines = /** @suppress {undefinedVars, duplicate} */function(raw_image, raw_padding, pixa, blockids, paraids) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg2 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_2(self, arg0, arg1), Boxa) }
-  if (arg3 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_3(self, arg0, arg1, arg2), Boxa) }
-  if (arg4 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_4(self, arg0, arg1, arg2, arg3), Boxa) }
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_5(self, arg0, arg1, arg2, arg3, arg4), Boxa);
+  if (raw_image && typeof raw_image === 'object') raw_image = raw_image.ptr;
+  if (raw_padding && typeof raw_padding === 'object') raw_padding = raw_padding.ptr;
+  if (pixa && typeof pixa === 'object') pixa = pixa.ptr;
+  if (blockids && typeof blockids === 'object') blockids = blockids.ptr;
+  if (paraids && typeof paraids === 'object') paraids = paraids.ptr;
+  if (pixa === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_2(self, raw_image, raw_padding), Boxa) }
+  if (blockids === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_3(self, raw_image, raw_padding, pixa), Boxa) }
+  if (paraids === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_4(self, raw_image, raw_padding, pixa, blockids), Boxa) }
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetTextlines_5(self, raw_image, raw_padding, pixa, blockids, paraids), Boxa);
 };;
 
-TessBaseAPI.prototype['GetStrips'] = TessBaseAPI.prototype.GetStrips = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['GetStrips'] = TessBaseAPI.prototype.GetStrips = /** @suppress {undefinedVars, duplicate} */function(pixa, blockids) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetStrips_2(self, arg0, arg1), Boxa);
+  if (pixa && typeof pixa === 'object') pixa = pixa.ptr;
+  if (blockids && typeof blockids === 'object') blockids = blockids.ptr;
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetStrips_2(self, pixa, blockids), Boxa);
 };;
 
-TessBaseAPI.prototype['GetWords'] = TessBaseAPI.prototype.GetWords = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetWords'] = TessBaseAPI.prototype.GetWords = /** @suppress {undefinedVars, duplicate} */function(pixa) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetWords_1(self, arg0), Boxa);
+  if (pixa && typeof pixa === 'object') pixa = pixa.ptr;
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetWords_1(self, pixa), Boxa);
 };;
 
-TessBaseAPI.prototype['GetConnectedComponents'] = TessBaseAPI.prototype.GetConnectedComponents = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetConnectedComponents'] = TessBaseAPI.prototype.GetConnectedComponents = /** @suppress {undefinedVars, duplicate} */function(cc) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetConnectedComponents_1(self, arg0), Boxa);
+  if (cc && typeof cc === 'object') cc = cc.ptr;
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetConnectedComponents_1(self, cc), Boxa);
 };;
 
-TessBaseAPI.prototype['GetComponentImages'] = TessBaseAPI.prototype.GetComponentImages = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+TessBaseAPI.prototype['GetComponentImages'] = TessBaseAPI.prototype.GetComponentImages = /** @suppress {undefinedVars, duplicate} */function(level, text_only, raw_image, raw_padding, pixa, blockids, paraids) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg5 && typeof arg5 === 'object') arg5 = arg5.ptr;
-  if (arg6 && typeof arg6 === 'object') arg6 = arg6.ptr;
-  if (arg4 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_4(self, arg0, arg1, arg2, arg3), Boxa) }
-  if (arg5 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_5(self, arg0, arg1, arg2, arg3, arg4), Boxa) }
-  if (arg6 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_6(self, arg0, arg1, arg2, arg3, arg4, arg5), Boxa) }
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_7(self, arg0, arg1, arg2, arg3, arg4, arg5, arg6), Boxa);
+  if (level && typeof level === 'object') level = level.ptr;
+  if (text_only && typeof text_only === 'object') text_only = text_only.ptr;
+  if (raw_image && typeof raw_image === 'object') raw_image = raw_image.ptr;
+  if (raw_padding && typeof raw_padding === 'object') raw_padding = raw_padding.ptr;
+  if (pixa && typeof pixa === 'object') pixa = pixa.ptr;
+  if (blockids && typeof blockids === 'object') blockids = blockids.ptr;
+  if (paraids && typeof paraids === 'object') paraids = paraids.ptr;
+  if (pixa === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_4(self, level, text_only, raw_image, raw_padding), Boxa) }
+  if (blockids === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_5(self, level, text_only, raw_image, raw_padding, pixa), Boxa) }
+  if (paraids === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_6(self, level, text_only, raw_image, raw_padding, pixa, blockids), Boxa) }
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetComponentImages_7(self, level, text_only, raw_image, raw_padding, pixa, blockids, paraids), Boxa);
 };;
 
 TessBaseAPI.prototype['GetThresholdedImageScaleFactor'] = TessBaseAPI.prototype.GetThresholdedImageScaleFactor = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1501,49 +1501,49 @@ TessBaseAPI.prototype['GetThresholdedImageScaleFactor'] = TessBaseAPI.prototype.
   return _emscripten_bind_TessBaseAPI_GetThresholdedImageScaleFactor_0(self);
 };;
 
-TessBaseAPI.prototype['AnalyseLayout'] = TessBaseAPI.prototype.AnalyseLayout = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['AnalyseLayout'] = TessBaseAPI.prototype.AnalyseLayout = /** @suppress {undefinedVars, duplicate} */function(merge_similar_words) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg0 === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_AnalyseLayout_0(self), PageIterator) }
-  return wrapPointer(_emscripten_bind_TessBaseAPI_AnalyseLayout_1(self, arg0), PageIterator);
+  if (merge_similar_words && typeof merge_similar_words === 'object') merge_similar_words = merge_similar_words.ptr;
+  if (merge_similar_words === undefined) { return wrapPointer(_emscripten_bind_TessBaseAPI_AnalyseLayout_0(self), PageIterator) }
+  return wrapPointer(_emscripten_bind_TessBaseAPI_AnalyseLayout_1(self, merge_similar_words), PageIterator);
 };;
 
-TessBaseAPI.prototype['Recognize'] = TessBaseAPI.prototype.Recognize = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['Recognize'] = TessBaseAPI.prototype.Recognize = /** @suppress {undefinedVars, duplicate} */function(monitor) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_TessBaseAPI_Recognize_1(self, arg0);
+  if (monitor && typeof monitor === 'object') monitor = monitor.ptr;
+  return _emscripten_bind_TessBaseAPI_Recognize_1(self, monitor);
 };;
 
-TessBaseAPI.prototype['RecognizeForChopTest'] = TessBaseAPI.prototype.RecognizeForChopTest = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['RecognizeForChopTest'] = TessBaseAPI.prototype.RecognizeForChopTest = /** @suppress {undefinedVars, duplicate} */function(monitor) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return _emscripten_bind_TessBaseAPI_RecognizeForChopTest_1(self, arg0);
+  if (monitor && typeof monitor === 'object') monitor = monitor.ptr;
+  return _emscripten_bind_TessBaseAPI_RecognizeForChopTest_1(self, monitor);
 };;
 
-TessBaseAPI.prototype['ProcessPages'] = TessBaseAPI.prototype.ProcessPages = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3) {
+TessBaseAPI.prototype['ProcessPages'] = TessBaseAPI.prototype.ProcessPages = /** @suppress {undefinedVars, duplicate} */function(filename, retry_config, timeout_millisec, renderer) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  return !!(_emscripten_bind_TessBaseAPI_ProcessPages_4(self, arg0, arg1, arg2, arg3));
+  if (filename && typeof filename === 'object') filename = filename.ptr;
+  else filename = ensureString(filename);
+  if (retry_config && typeof retry_config === 'object') retry_config = retry_config.ptr;
+  else retry_config = ensureString(retry_config);
+  if (timeout_millisec && typeof timeout_millisec === 'object') timeout_millisec = timeout_millisec.ptr;
+  if (renderer && typeof renderer === 'object') renderer = renderer.ptr;
+  return !!(_emscripten_bind_TessBaseAPI_ProcessPages_4(self, filename, retry_config, timeout_millisec, renderer));
 };;
 
-TessBaseAPI.prototype['ProcessPage'] = TessBaseAPI.prototype.ProcessPage = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1, arg2, arg3, arg4, arg5) {
+TessBaseAPI.prototype['ProcessPage'] = TessBaseAPI.prototype.ProcessPage = /** @suppress {undefinedVars, duplicate} */function(pix, page_index, filename, retry_config, timeout_millisec, renderer) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  if (arg2 && typeof arg2 === 'object') arg2 = arg2.ptr;
-  else arg2 = ensureString(arg2);
-  if (arg3 && typeof arg3 === 'object') arg3 = arg3.ptr;
-  else arg3 = ensureString(arg3);
-  if (arg4 && typeof arg4 === 'object') arg4 = arg4.ptr;
-  if (arg5 && typeof arg5 === 'object') arg5 = arg5.ptr;
-  return !!(_emscripten_bind_TessBaseAPI_ProcessPage_6(self, arg0, arg1, arg2, arg3, arg4, arg5));
+  if (pix && typeof pix === 'object') pix = pix.ptr;
+  if (page_index && typeof page_index === 'object') page_index = page_index.ptr;
+  if (filename && typeof filename === 'object') filename = filename.ptr;
+  else filename = ensureString(filename);
+  if (retry_config && typeof retry_config === 'object') retry_config = retry_config.ptr;
+  else retry_config = ensureString(retry_config);
+  if (timeout_millisec && typeof timeout_millisec === 'object') timeout_millisec = timeout_millisec.ptr;
+  if (renderer && typeof renderer === 'object') renderer = renderer.ptr;
+  return !!(_emscripten_bind_TessBaseAPI_ProcessPage_6(self, pix, page_index, filename, retry_config, timeout_millisec, renderer));
 };;
 
 TessBaseAPI.prototype['GetIterator'] = TessBaseAPI.prototype.GetIterator = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1553,36 +1553,36 @@ TessBaseAPI.prototype['GetIterator'] = TessBaseAPI.prototype.GetIterator = /** @
 
 TessBaseAPI.prototype['GetUTF8Text'] = TessBaseAPI.prototype.GetUTF8Text = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetUTF8Text_0(self));
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetUTF8Text_0(self));
 };;
 
-TessBaseAPI.prototype['GetHOCRText'] = TessBaseAPI.prototype.GetHOCRText = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetHOCRText'] = TessBaseAPI.prototype.GetHOCRText = /** @suppress {undefinedVars, duplicate} */function(page_number) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetHOCRText_1(self, arg0));
+  if (page_number && typeof page_number === 'object') page_number = page_number.ptr;
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetHOCRText_1(self, page_number));
 };;
 
-TessBaseAPI.prototype['GetTSVText'] = TessBaseAPI.prototype.GetTSVText = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetTSVText'] = TessBaseAPI.prototype.GetTSVText = /** @suppress {undefinedVars, duplicate} */function(page_number) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetTSVText_1(self, arg0));
+  if (page_number && typeof page_number === 'object') page_number = page_number.ptr;
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetTSVText_1(self, page_number));
 };;
 
-TessBaseAPI.prototype['GetBoxText'] = TessBaseAPI.prototype.GetBoxText = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetBoxText'] = TessBaseAPI.prototype.GetBoxText = /** @suppress {undefinedVars, duplicate} */function(page_number) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetBoxText_1(self, arg0));
+  if (page_number && typeof page_number === 'object') page_number = page_number.ptr;
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetBoxText_1(self, page_number));
 };;
 
 TessBaseAPI.prototype['GetUNLVText'] = TessBaseAPI.prototype.GetUNLVText = /** @suppress {undefinedVars, duplicate} */function() {
   var self = this.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetUNLVText_0(self));
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetUNLVText_0(self));
 };;
 
-TessBaseAPI.prototype['GetOsdText'] = TessBaseAPI.prototype.GetOsdText = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetOsdText'] = TessBaseAPI.prototype.GetOsdText = /** @suppress {undefinedVars, duplicate} */function(page_number) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetOsdText_1(self, arg0));
+  if (page_number && typeof page_number === 'object') page_number = page_number.ptr;
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetOsdText_1(self, page_number));
 };;
 
 TessBaseAPI.prototype['MeanTextConf'] = TessBaseAPI.prototype.MeanTextConf = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1595,13 +1595,13 @@ TessBaseAPI.prototype['AllWordConfidences'] = TessBaseAPI.prototype.AllWordConfi
   return wrapPointer(_emscripten_bind_TessBaseAPI_AllWordConfidences_0(self), IntPtr);
 };;
 
-TessBaseAPI.prototype['AdaptToWordStr'] = TessBaseAPI.prototype.AdaptToWordStr = /** @suppress {undefinedVars, duplicate} */function(arg0, arg1) {
+TessBaseAPI.prototype['AdaptToWordStr'] = TessBaseAPI.prototype.AdaptToWordStr = /** @suppress {undefinedVars, duplicate} */function(mode, wordstr) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  if (arg1 && typeof arg1 === 'object') arg1 = arg1.ptr;
-  else arg1 = ensureString(arg1);
-  return !!(_emscripten_bind_TessBaseAPI_AdaptToWordStr_2(self, arg0, arg1));
+  if (mode && typeof mode === 'object') mode = mode.ptr;
+  if (wordstr && typeof wordstr === 'object') wordstr = wordstr.ptr;
+  else wordstr = ensureString(wordstr);
+  return !!(_emscripten_bind_TessBaseAPI_AdaptToWordStr_2(self, mode, wordstr));
 };;
 
 TessBaseAPI.prototype['Clear'] = TessBaseAPI.prototype.Clear = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1619,38 +1619,38 @@ TessBaseAPI.prototype['ClearPersistentCache'] = TessBaseAPI.prototype.ClearPersi
   _emscripten_bind_TessBaseAPI_ClearPersistentCache_0(self);
 };;
 
-TessBaseAPI.prototype['IsValidWord'] = TessBaseAPI.prototype.IsValidWord = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['IsValidWord'] = TessBaseAPI.prototype.IsValidWord = /** @suppress {undefinedVars, duplicate} */function(word) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return _emscripten_bind_TessBaseAPI_IsValidWord_1(self, arg0);
+  if (word && typeof word === 'object') word = word.ptr;
+  else word = ensureString(word);
+  return _emscripten_bind_TessBaseAPI_IsValidWord_1(self, word);
 };;
 
-TessBaseAPI.prototype['IsValidCharacter'] = TessBaseAPI.prototype.IsValidCharacter = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['IsValidCharacter'] = TessBaseAPI.prototype.IsValidCharacter = /** @suppress {undefinedVars, duplicate} */function(utf8_character) {
   var self = this.ptr;
   ensureCache.prepare();
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  else arg0 = ensureString(arg0);
-  return !!(_emscripten_bind_TessBaseAPI_IsValidCharacter_1(self, arg0));
+  if (utf8_character && typeof utf8_character === 'object') utf8_character = utf8_character.ptr;
+  else utf8_character = ensureString(utf8_character);
+  return !!(_emscripten_bind_TessBaseAPI_IsValidCharacter_1(self, utf8_character));
 };;
 
-TessBaseAPI.prototype['DetectOS'] = TessBaseAPI.prototype.DetectOS = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['DetectOS'] = TessBaseAPI.prototype.DetectOS = /** @suppress {undefinedVars, duplicate} */function(osr) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return !!(_emscripten_bind_TessBaseAPI_DetectOS_1(self, arg0));
+  if (osr && typeof osr === 'object') osr = osr.ptr;
+  return !!(_emscripten_bind_TessBaseAPI_DetectOS_1(self, osr));
 };;
 
-TessBaseAPI.prototype['GetUnichar'] = TessBaseAPI.prototype.GetUnichar = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetUnichar'] = TessBaseAPI.prototype.GetUnichar = /** @suppress {undefinedVars, duplicate} */function(unichar_id) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return Pointer_stringify(_emscripten_bind_TessBaseAPI_GetUnichar_1(self, arg0));
+  if (unichar_id && typeof unichar_id === 'object') unichar_id = unichar_id.ptr;
+  return UTF8ToString(_emscripten_bind_TessBaseAPI_GetUnichar_1(self, unichar_id));
 };;
 
-TessBaseAPI.prototype['GetDawg'] = TessBaseAPI.prototype.GetDawg = /** @suppress {undefinedVars, duplicate} */function(arg0) {
+TessBaseAPI.prototype['GetDawg'] = TessBaseAPI.prototype.GetDawg = /** @suppress {undefinedVars, duplicate} */function(i) {
   var self = this.ptr;
-  if (arg0 && typeof arg0 === 'object') arg0 = arg0.ptr;
-  return wrapPointer(_emscripten_bind_TessBaseAPI_GetDawg_1(self, arg0), Dawg);
+  if (i && typeof i === 'object') i = i.ptr;
+  return wrapPointer(_emscripten_bind_TessBaseAPI_GetDawg_1(self, i), Dawg);
 };;
 
 TessBaseAPI.prototype['NumDawgs'] = TessBaseAPI.prototype.NumDawgs = /** @suppress {undefinedVars, duplicate} */function() {
@@ -1891,6 +1891,6 @@ Module['Pixa'] = Pixa;
     Module['PSM_COUNT'] = _emscripten_enum_PageSegMode_PSM_COUNT();
 
   }
-  if (Module['calledRun']) setupEnums();
+  if (runtimeInitialized) setupEnums();
   else addOnPreMain(setupEnums);
 })();
