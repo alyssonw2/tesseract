@@ -492,6 +492,7 @@ set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORTED_FUNCTIONS='[\"_pixDestroy\",
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"FS\", \"setValue\", \"getValue\"]'")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js /src/javascript/glue.js")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js /src/javascript/anterior.js")
+set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --embed-file /src/tessdata/pdf.ttf@pdf.ttf")
 set_target_properties(tesseract-core.js PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCoreWASM\"'")
 target_link_libraries           (tesseract-core.js libtesseract)
 
