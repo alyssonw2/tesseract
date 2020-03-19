@@ -570,7 +570,7 @@ set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s ERROR_ON_UNDEFINED_SYMBOLS=0")
 # This flag fix the issue of [float unrepresentable in integer range]
 # Ref: http://kripken.github.io/emscripten-site/docs/compiling/WebAssembly.html#trap-mode
 #
-set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s BINARYEN_TRAP_MODE='\"clamp\"'")
+#set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s BINARYEN_TRAP_MODE='\"clamp\"'")
 #set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s ASSERTIONS=1")
 #set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s FS_LOG=1")
 #set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s RUNTIME_LOGGING=1")
