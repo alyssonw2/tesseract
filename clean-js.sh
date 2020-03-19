@@ -11,6 +11,7 @@ main() {
   clean_dir leptonica/libjpeg
   clean_dir leptonica/libpng
   clean_dir leptonica/libtiff
+  clean_dir leptonica/openlibm
   clean_dir leptonica
 }
 
