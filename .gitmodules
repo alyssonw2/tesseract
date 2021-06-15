@@ -11,3 +11,27 @@
 	path = leptonica
 	url = https://github.com/jeromewu/leptonica.git
 	branch = 1.74.2-tesseract.js
+[submodule "third_party/zlib"]
+	path = third_party/zlib
+	url = https://github.com/madler/zlib
+[submodule "third_party/libtiff"]
+	path = third_party/libtiff
+	url = https://gitlab.com/libtiff/libtiff
+[submodule "third_party/libpng"]
+	path = third_party/libpng
+	url = https://github.com/glennrp/libpng.git
+[submodule "third_party/libjpeg"]
+	path = third_party/libjpeg
+	url = https://github.com/LuaDist/libjpeg.git
+[submodule "third_party/openlibm"]
+	path = third_party/openlibm
+	url = https://github.com/JuliaMath/openlibm
+[submodule "third_party/leptonica"]
+	path = third_party/leptonica
+	url = https://github.com/DanBloomberg/leptonica
+[submodule "third_party/libwebp"]
+	path = third_party/libwebp
+	url = https://github.com/webmproject/libwebp
+[submodule "third_party/giflib"]
+	path = third_party/giflib
+	url = https://github.com/mirrorer/giflib

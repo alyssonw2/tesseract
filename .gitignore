@@ -87,6 +87,7 @@ kernel*.bin
 
 # build dirs
 /build
+/dep
 /.cppan
 /cppan
 /*.dll

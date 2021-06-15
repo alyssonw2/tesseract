@@ -188,15 +188,15 @@ elseif (UNIX)
         # Use c++11 standard
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11")
         # Optimize code for size reduction
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Oz")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
         # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g4")
         # Run closure compiler, reduce code size, enable closure will lead to variable undeclare issue
         # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --closure 1")
         # Do not emit a separate memory initialization file
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --memory-init-file 0")
         # LLVM link-time optimization, this flag solves the issue of [Invalid SIMD cast between items of different bit sizes]
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --llvm-lto 1")
-        set(LIB_pthread pthread)
+        # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --llvm-lto 1")
+        # set(LIB_pthread pthread)
     endif()
 elseif(WIN32)
     set(LIB_Ws2_32 Ws2_32)
@@ -545,7 +545,7 @@ endif()
 
 set(tesseract_js_wrapper javascript/src/wrapper.cpp)
 
-add_executable                  (tesseract-core.js ${tesseract_js_wrapper})
+add_executable                  (tesseract-core ${tesseract_js_wrapper})
 #
 # Check link below for detail explanation
 # https://github.com/kripken/emscripten/blob/1.38.16/src/settings.js
@@ -577,45 +577,57 @@ set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s ERROR_ON_UNDEFINED_SYMBOLS=0")
 #set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s LIBRARY_DEBUG=1")
 #set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s SYSCALL_DEBUG=1")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORTED_FUNCTIONS='[\"_pixDestroy\",\"_boxaDestroy\",\"_pixaDestroy\",\"_ptaDestroy\",\"_pixReadMem\",\"_pixReadHeaderMem\"]'")
-set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"FS\", \"setValue\", \"getValue\"]'")
+set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORTED_RUNTIME_METHODS='[\"FS\", \"setValue\", \"getValue\"]'")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js ../javascript/glue.js")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js ../javascript/anterior.js")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --embed-file ../tessdata/pdf.ttf@pdf.ttf")
-set_target_properties(tesseract-core.js PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCoreWASM\"'")
-target_link_libraries           (tesseract-core.js libtesseract)
+set_target_properties(tesseract-core PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCore\"'")
+target_link_libraries         (libtesseract PUBLIC
+  ${CMAKE_PREFIX_PATH}/lib/libgif.a
+  ${CMAKE_PREFIX_PATH}/lib/libjpeg.a
+  ${CMAKE_PREFIX_PATH}/lib/libopenlibm.a
+  ${CMAKE_PREFIX_PATH}/lib/libpng.a
+  ${CMAKE_PREFIX_PATH}/lib/libtiff.a
+  ${CMAKE_PREFIX_PATH}/lib/libtiffxx.a
+  ${CMAKE_PREFIX_PATH}/lib/libwebp.a
+  ${CMAKE_PREFIX_PATH}/lib/libwebpdecoder.a
+  ${CMAKE_PREFIX_PATH}/lib/libwebpdemux.a
+  ${CMAKE_PREFIX_PATH}/lib/libz.a
+)
+target_link_libraries           (tesseract-core libtesseract)
 
 #############################################################
 # Build tesseract-core.wasm.js (WASM Base64 embedded version)
 #############################################################
 
-add_executable                  (tesseract-core.wasm.js ${tesseract_js_wrapper})
+# add_executable                  (tesseract-core.wasm.js ${tesseract_js_wrapper})
 
-# Embeds all subresources in the emitted file as base64 string literals
-set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s SINGLE_FILE=1")
-set_target_properties(tesseract-core.wasm.js PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCoreWASM\"'")
+# # Embeds all subresources in the emitted file as base64 string literals
+# set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s SINGLE_FILE=1")
+# set_target_properties(tesseract-core.wasm.js PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCoreWASM\"'")
 
-target_link_libraries           (tesseract-core.wasm.js libtesseract)
+# target_link_libraries           (tesseract-core.wasm.js libtesseract)
 
 
 ###########################################
 # Build tesseract-core.asm.js (ASM version)
 ###########################################
 
-add_executable                  (tesseract-core.asm.js ${tesseract_js_wrapper})
+# add_executable                  (tesseract-core.asm.js ${tesseract_js_wrapper})
 
-# Disable WASM
-set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s WASM=0")
+# # Disable WASM
+# set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s WASM=0")
 
-set_target_properties(tesseract-core.asm.js PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCoreASM\"'")
-target_link_libraries           (tesseract-core.asm.js libtesseract)
-set(tesseractmain_src src/api/tesseractmain.cpp)
-#if (HAVE_TIFFIO_H)
-    #target_link_libraries(tesseract tiff)
-#endif()
+# set_target_properties(tesseract-core.asm.js PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCoreASM\"'")
+# target_link_libraries           (tesseract-core.asm.js libtesseract)
+# set(tesseractmain_src src/api/tesseractmain.cpp)
+# #if (HAVE_TIFFIO_H)
+#     #target_link_libraries(tesseract tiff)
+# #endif()
 
-#if (OPENMP_BUILD AND UNIX)
-#target_link_libraries           (tesseract pthread)
-#endif()
+# #if (OPENMP_BUILD AND UNIX)
+# #target_link_libraries           (tesseract pthread)
+# #endif()
 
 ########################################
 
@@ -632,8 +644,8 @@ get_target_property(tesseract_VERSION libtesseract VERSION)
 get_target_property(tesseract_OUTPUT_NAME libtesseract OUTPUT_NAME)
 configure_file(tesseract.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/tesseract.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tesseract.pc DESTINATION lib/pkgconfig)
-install(TARGETS tesseract-core.js RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
-install(TARGETS tesseract-core.asm.js RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+install(TARGETS tesseract-core RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+# install(TARGETS tesseract-core.asm.js RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
 install(TARGETS libtesseract EXPORT TesseractTargets RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
 install(EXPORT TesseractTargets DESTINATION cmake)
 install(FILES
