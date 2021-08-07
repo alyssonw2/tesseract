@@ -543,7 +543,7 @@ endif()
 # Build tesseract-core.js (WASM version)
 ########################################
 
-set(tesseract_js_wrapper javascript/src/wrapper.cpp)
+set(tesseract_js_wrapper wasm/src/wrapper.cpp)
 
 add_executable                  (tesseract-core ${tesseract_js_wrapper})
 #
@@ -578,8 +578,8 @@ set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s ERROR_ON_UNDEFINED_SYMBOLS=0")
 #set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s SYSCALL_DEBUG=1")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORTED_FUNCTIONS='[\"_pixDestroy\",\"_boxaDestroy\",\"_pixaDestroy\",\"_ptaDestroy\",\"_pixReadMem\",\"_pixReadHeaderMem\"]'")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORTED_RUNTIME_METHODS='[\"FS\", \"setValue\", \"getValue\"]'")
-set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js ../javascript/glue.js")
-set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js ../javascript/anterior.js")
+set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js ../wasm/glue.js")
+set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --post-js ../wasm/anterior.js")
 set(TESS_LINK_FLAGS "${TESS_LINK_FLAGS} --embed-file ../tessdata/pdf.ttf@pdf.ttf")
 set_target_properties(tesseract-core PROPERTIES LINK_FLAGS "${TESS_LINK_FLAGS} -s EXPORT_NAME='\"TesseractCore\"'")
 target_link_libraries         (libtesseract PUBLIC
