@@ -4,7 +4,7 @@
   "description": "An example to show how to use tesseract.js in offline mode",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -p 3000 ."
+    "start": "http-server -p 3000"
   },
   "repository": {
     "type": "git",
